@@ -85,6 +85,7 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-header">NAVIGATION</li>
           <li class="nav-item">
             <a href="/dashboard" class="nav-link @if(Request::is('dashboard')) active @endif">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -117,12 +118,129 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-print"></i>
+              <p>
+                Clearances
+                <i class="right fas fa-angle-down"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="background-color: #45505a">
+              <li class="nav-item">
+                <a href="/household" class="nav-link @if(Request::is('household') || Request::is('household/create')) active @endif
+                ">
+                  <i class="fa fa-home"></i>
+                  <p>Manage Household</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/resident" class="nav-link @if(Request::is('resident') || Request::is('resident/create')) active @endif">
+                  <i class="fa fa-user-circle"></i>
+                   <p>&nbsp;Manage Resident</p>
+                </a>
+              </li>
+            </ul>
+          </li>
 
-          <li class="nav-header">MISCELLANEOUS</li>
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-balance-scale"></i>
+              <p>
+                Judicial Cases
+                <i class="right fas fa-angle-down"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="background-color: #45505a">
+              <li class="nav-item">
+                <a href="/household" class="nav-link @if(Request::is('household') || Request::is('household/create')) active @endif
+                ">
+                  <i class="fa fa-home"></i>
+                  <p>Manage Household</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/resident" class="nav-link @if(Request::is('resident') || Request::is('resident/create')) active @endif">
+                  <i class="fa fa-user-circle"></i>
+                   <p>&nbsp;Manage Resident</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-heart"></i>
+              <p>
+                Medical/Healthcare
+                <i class="right fas fa-angle-down"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="background-color: #45505a">
+              <li class="nav-item">
+                <a href="/household" class="nav-link @if(Request::is('household') || Request::is('household/create')) active @endif
+                ">
+                  <i class="fa fa-home"></i>
+                  <p>Manage Household</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/resident" class="nav-link @if(Request::is('resident') || Request::is('resident/create')) active @endif">
+                  <i class="fa fa-user-circle"></i>
+                   <p>&nbsp;Manage Resident</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview ">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fas fa-bullhorn"></i>
+              <p>
+                Disaster Risk Reduction
+                <i class="right fas fa-angle-down"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="background-color: #45505a">
+              <li class="nav-item">
+                <a href="/household" class="nav-link @if(Request::is('household') || Request::is('household/create')) active @endif
+                ">
+                  <i class="fa fa-home"></i>
+                  <p>Manage Household</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/resident" class="nav-link @if(Request::is('resident') || Request::is('resident/create')) active @endif">
+                  <i class="fa fa-user-circle"></i>
+                   <p>&nbsp;Manage Resident</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item">
-            <a href="/settings" class="nav-link @if(Request::is('settings')) active @endif">
-              <i class="fa fa-cogs"></i>
-               <p>&nbsp;Settings</p>
+            <a href="/user" class="nav-link @if(Request::is('user')) active @endif">
+              <i class="fa fa-file"></i>
+               <p>&nbsp;Barangay Forms</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/user" class="nav-link @if(Request::is('user')) active @endif">
+              <i class="fa fa-calendar"></i>
+               <p>&nbsp;Events Calendar</p>
+            </a>
+          </li>
+
+          <li class="nav-header">SETTINGS</li>
+          <li class="nav-item">
+            <a href="/user" class="nav-link @if(Request::is('user')) active @endif">
+              <i class="fa fa-users"></i>
+               <p>&nbsp;Manage Users</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/user" class="nav-link @if(Request::is('user')) active @endif">
+              <i class="fa fa-building"></i>
+               <p>&nbsp;Barangay Profile</p>
             </a>
           </li>
         
