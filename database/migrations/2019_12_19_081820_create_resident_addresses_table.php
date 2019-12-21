@@ -13,7 +13,7 @@ class CreateResidentAddressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('resident_addresses', function (Blueprint $table) {
+        Schema::create('resident__addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('resident_id')->unsigned()->index();;
             $table->string('ownership');

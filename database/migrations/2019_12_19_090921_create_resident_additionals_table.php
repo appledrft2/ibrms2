@@ -13,7 +13,7 @@ class CreateResidentAdditionalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('resident_additionals', function (Blueprint $table) {
+        Schema::create('resident__additionals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('resident_id')->unsigned()->index();;
             $table->string('educational_attainment');
