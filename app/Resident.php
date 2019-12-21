@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\resident_address;
-use App\resident_additional;
+use App\Resident_Address;
+use App\Resident_Additional;
 use Illuminate\Database\Eloquent\Model;
 
 class Resident extends Model
@@ -12,12 +12,12 @@ class Resident extends Model
 
     public function address(){
 
-        return $this->hasOne(resident_address::class);
+        return $this->hasOne(Resident_Address::class);
 
     }
     public function additional(){
 
-        return $this->hasOne(resident_additional::class);
+        return $this->hasOne(Resident_Additional::class);
 
     }
 }

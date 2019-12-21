@@ -5,7 +5,7 @@ namespace App;
 use App\Resident;
 use Illuminate\Database\Eloquent\Model;
 
-class resident_address extends Model
+class Resident_Address extends Model
 {
     protected $guarded = [''];
 
