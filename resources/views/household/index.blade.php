@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header">
                 	<span class="float-left"><a href="/household/create" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> New Household</a></span>
-                	<span class="float-right"><a class="btn btn-default"><i class="fa fa-print"></i> Print Record</a></span>
+                	
                 </div>
 
                 <div class="card-body">
