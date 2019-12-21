@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Resident;
 use App\Household;
-use App\Resident_Address;
-use App\Resident_Additional;
+use App\resident_address;
+use App\resident_additional;
 use Illuminate\Http\Request;
 
 class ResidentController extends Controller
