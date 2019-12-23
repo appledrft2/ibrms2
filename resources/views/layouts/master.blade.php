@@ -10,7 +10,7 @@
     <meta name="keyword" content="IBRMS">
     <title>@yield('title','IBRMS') - Integrated Barangay Records Management System</title>
     <!-- Icons-->
-    <link rel="icon" href="coreui/img/ibrmslogo.png" type="image/x-icon" />
+    <link rel="icon" href="coreui/img/ibrmslogo.PNG" type="image/x-icon" />
     <link href="{{asset('coreui/node_modules/@coreui/icons/css/coreui-icons.min.css')}}" rel="stylesheet">
     <link href="{{asset('coreui/node_modules/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet">
     <link href="{{asset('coreui/node_modules/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
@@ -33,7 +33,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="{{asset('coreui/img/ibrmslogo.png')}}" width="100" height="50" alt="CoreUI Logo">
+        <img class="navbar-brand-full" src="{{asset('coreui/img/ibrmslogo.PNG')}}" width="100" height="50" alt="CoreUI Logo">
         <img class="navbar-brand-minimized" src="{{asset('coreui/img/brand/sygnet.svg')}}" width="30" height="30" alt="CoreUI Logo">
       </a>
       <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
