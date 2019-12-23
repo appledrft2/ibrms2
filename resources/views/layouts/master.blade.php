@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="IBRMS - Integrated Barangay Records Management System">
-    <meta name="author" content="anonymous">
+    <meta name="author" content="anonymouse">
     <meta name="keyword" content="IBRMS">
     <title>@yield('title','IBRMS') - Integrated Barangay Records Management System</title>
     <!-- Icons-->
