@@ -1,5 +1,6 @@
-@extends('layouts.adminlte3')
-@section('header','New Resident')
+@extends('layouts.master')
+<?php $title = 'Resident'; ?>
+@section('title',$title)
 @section('content')
 <div class="row">
 <form action="/resident" method="POST">
@@ -227,10 +228,7 @@
     <div class="card collapsed-card">
             <div class="card-header header-elements-inline ">
                 <h5 class="card-title">Residential Address </h5>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
-                  
-                </div>
+                
             </div>
 
             <div class="card-body">
@@ -392,10 +390,7 @@
     <div class="card collapsed-card">
             <div class="card-header header-elements-inline">
                 <h5 class="card-title">Additional Information</h5>
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
                 
-                </div>
             </div>
 
             <div class="card-body">

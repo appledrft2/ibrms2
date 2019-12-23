@@ -1,17 +1,17 @@
-@extends('layouts.adminlte3')
-@section('header','Manage Resident')
+@extends('layouts.master')
+<?php $title = 'Resident'; ?>
+@section('title',$title)
 @section('content')
-
+<div class="form-group">
+    <a href="/resident/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> New Resident</a>
+</div>
             <div class="card">
-                <div class="card-header">
-                	<span class="float-left"><a href="/resident/create" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> New Resident</a></span>
-                	
-                </div>
+                
 
                 <div class="card-body">
                 	<div class="table-responsive">
                 		<table id="dtt1" class="table table-hover table-bordered">
-                			<thead style="background-color: #343a40;color:white">
+                			<thead >
                 				<tr>
                 					<th>Resident ID No.</th>
                 					<th>Fullname</th>
@@ -37,7 +37,7 @@
 
                 							<td align="center">        
 		                                    	<div class="form-inline">
-		                                    		<a href="/resident/{{$resident->id}}/edit" class="btn btn-info btn-sm mr-1"><i class="fa fa-edit"></i></a>
+		                                    		<a href="/resident/{{$resident->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
 		                                    		<form id="form{{$resident->id}}" method="POST" action="/resident/{{$resident->id}}" >
 		                                    			@csrf
 		                                    			@method('delete')

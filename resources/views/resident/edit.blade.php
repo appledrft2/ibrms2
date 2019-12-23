@@ -1,5 +1,6 @@
-@extends('layouts.adminlte3')
-@section('header','Edit Resident')
+@extends('layouts.master')
+<?php $title = 'Resident'; ?>
+@section('title',$title)
 @section('content')
 <div class="row">
 <form action="/resident/{{$resident->id}}" method="POST">

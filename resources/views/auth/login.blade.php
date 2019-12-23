@@ -1,77 +1,90 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Log in | Integrated Barangay Records Management System</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+  <head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="IBRMS - Integrated Barangay Records Management System">
+    <meta name="author" content="anonymous">
+    <meta name="keyword" content="IBRMS">
+    <title>IBRMS - Integrated Barangay Records Management System</title>
+    <!-- Icons-->
+    <link rel="icon" href="coreui/img/ibrmslogo.png" type="image/x-icon" />
+    <link href="coreui/node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+    <link href="coreui/node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="coreui/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="coreui/node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <!-- Main styles for this application-->
+    <link href="coreui/css/style.css" rel="stylesheet">
+    <link href="coreui/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+  </head>
+  <body class="app flex-row align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <h1>Login</h1>
+                <p class="text-muted">Sign In to your account</p>
+                <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="icon-user"></i>
+                    </span>
+                  </div>
+                  <input required class="form-control" type="email" name="email" placeholder="Email">
+                  
+                </div>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
-<body class="hold-transition login-page" style="background-color: #343a40">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="#" class="text-white"><b>IB</b>RMS</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="icon-lock"></i>
+                    </span>
+                  </div>
+                  <input required class="form-control" type="password" name="password" placeholder="Password">
+                </div>
 
-      <form action="{{route('login')}}" method="post">
-        @csrf
-        <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Email">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+                <div class="row">
+                  <div class="col-6">
+                    <button class="btn btn-primary px-4" type="submit">Login</button>
+                  </div>
+                </form>
+                  <div class="col-6 text-right">
+                    <button class="btn btn-link px-0" type="button">Forgot password?</button>
+                  </div>
+                </div>
+            
+              </div>
+              @error('email')
+                  <span class="alert alert-danger" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+            </div>
+            <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+              <div class="card-body text-center">
+                <div>
+                  <h2>Sign up</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <button class="btn btn-primary active mt-3" type="button">Register Now!</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-
-
-      
-      <p class="mt-3 text-center">
-        <a href="register" class="text-center">Create an account</a>
-      </p>
+      </div>
     </div>
-    <!-- /.login-card-body -->
-  </div>
-</div>
-<!-- /.login-box -->
-
-<!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-
-</body>
+    <!-- CoreUI and necessary plugins-->
+    <script src="coreui/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="coreui/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="coreui/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="coreui/node_modules/pace-progress/pace.min.js"></script>
+    <script src="coreui/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <script src="coreui/node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+  </body>
 </html>

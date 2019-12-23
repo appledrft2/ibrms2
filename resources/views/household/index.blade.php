@@ -1,17 +1,16 @@
-@extends('layouts.adminlte3')
-@section('header','Manage Household')
+@extends('layouts.master')
+<?php $title = 'Household'; ?>
+@section('title',$title)
 @section('content')
-
+<div class="form-group">
+    <a href="/household/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> New Household</a>
+</div>
             <div class="card">
-                <div class="card-header">
-                	<span class="float-left"><a href="/household/create" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i> New Household</a></span>
-                	
-                </div>
 
                 <div class="card-body">
                 	<div class="table-responsive">
-                		<table id="dtt1" class="table table-hover table-bordered">
-                			<thead style="background-color: #343a40;color:white">
+                		<table id="dtt1" class="table table-hover table-striped table-bordered">
+                			<thead>
                 				<tr>
                 					<th>Household ID No.</th>
                 					<th>Family Serial No.</th>
@@ -29,7 +28,7 @@
 <!-- 	            					<td>{{$household->created_at->isoFormat('Y-M-D, h:mm:ss a')}}</td> -->
 	            					<td align="center">        
                                     	<div class="form-inline">
-                                    		<a href="/household/{{$household->id}}/edit" class="btn btn-info btn-sm mr-1"><i class="fa fa-edit"></i></a>
+                                    		<a href="/household/{{$household->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
                                     		<form id="form{{$household->id}}" method="POST" action="/household/{{$household->id}}" >
                                     			@csrf
                                     			@method('delete')

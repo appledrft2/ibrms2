@@ -1,7 +1,7 @@
-@extends('layouts.adminlte3')
-@section('header','Edit Household')
+@extends('layouts.master')
+<?php $title = 'Household'; ?>
+@section('title',$title)
 @section('content')
-
             <div class="card">
             	<div class="card-header">
             		<h5>Household Details: <i class="fa fa-question-circle mr-1" title="Household ID No. is automatically generated"></i></h5>
@@ -27,12 +27,13 @@
                 	</div>
                    
                 </div>
-                <div class="card-footer">
-                	<span class="float-right">
-                		<a href="/household" class="btn btn-danger">Cancel</a>
-                		<button type="submit" class="btn btn-primary">Update Record</button>
-                	</span>
-                </form>
+                        
+              
                 </div>
-            </div>
+                <span class="float-right">
+                    <a href="/household" class="btn btn-danger">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Update Record</button>
+                </span>
+            </form>
+   
 @endsection
