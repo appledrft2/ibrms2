@@ -84,13 +84,18 @@
       <div class="sidebar">
         <nav class="sidebar-nav">
           <ul class="nav">
+            <li class="nav-title text-center">
+              <img src="{{asset('coreui/img/esc.png')}}" style="border-radius: 90%" width="80" height="80">
+              <p class="mt-1">Brgy. Alimango</p>
+              
+            </li>
             <li class="nav-title">NAVIGATION</li>
             <li class="nav-item">
               <a class="nav-link " href="/dashboard">
                 <i class="nav-icon icon-speedometer"></i> Dashboard
               </a>
             </li>
-            <li class="nav-item nav-dropdown open">
+            <li class="nav-item nav-dropdown">
               <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-people"></i> Residents</a>
               <ul class="nav-dropdown-items">
@@ -106,30 +111,30 @@
             </li>
             <li class="nav-title">SETTINGS</li>
             
-            <li class="nav-item nav-dropdown open">
+            <li class="nav-item nav-dropdown">
               <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-folder"></i> Barangay Profile</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
                   <a class="nav-link" href="/barangay" target="_top">
-                    <i class="nav-icon icon-eye"></i> View Profile</a>
+                    <i class="nav-icon icon-note"></i> Barangay</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/purok" target="_top">
-                    <i class="nav-icon icon-list"></i> Manage Purok</a>
+                    <i class="nav-icon icon-list"></i> Purok</a>
                 </li>
               </ul>
             </li>
 
 
-            <li class="nav-item">
+        <!--     <li class="nav-item">
               <a class="nav-link" href="register.html" target="_top">
                 <i class="nav-icon icon-key"></i> Accounts</a>
-            </li>
+            </li> -->
             
           </ul>
         </nav>
-        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+      <!--   <button class="sidebar-minimizer brand-minimizer" type="button"></button> -->
       </div>
       <main class="main">
         <!-- Breadcrumb-->
