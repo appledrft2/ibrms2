@@ -25,7 +25,11 @@
     <!-- Select2 -->
     <link rel="stylesheet" href="{{asset('plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
-
+    <style type="text/css">
+      .hidden{
+        display:none;
+      }
+    </style>
   </head>
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <header class="app-header navbar">
