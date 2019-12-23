@@ -14,7 +14,9 @@ class BarangayController extends Controller
      */
     public function index()
     {
-        return view('barangay.index');
+        $barangays = Barangay::latest()->first();
+
+        return view('barangay.index',compact('barangays'));
     }
 
     /**
@@ -34,8 +36,30 @@ class BarangayController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+
+        $data = request()->validate([
+            'name'=>'nullable',
+            'secretary'=>'nullable',
+            'captain'=>'nullable',
+            'treasurer'=>'nullable',
+            'address'=>'nullable',
+            'city'=>'nullable',
+            'province'=>'nullable',
+            'region'=>'nullable',
+            'zipcode'=>'nullable',
+            'kg1'=>'nullable',
+            'kg2'=>'nullable',
+            'kg3'=>'nullable',
+            'kg4'=>'nullable',
+            'kg5'=>'nullable',
+            'kg6'=>'nullable',
+            'kg7'=>'nullable',
+
+        ]);
+        Barangay::create($data);
+        toast('Record Successfully Saved!','success');
+        return redirect('/barangay');
     }
 
     /**
@@ -69,7 +93,28 @@ class BarangayController extends Controller
      */
     public function update(Request $request, Barangay $barangay)
     {
-        //
+        $data = request()->validate([
+            'name'=>'nullable',
+            'secretary'=>'nullable',
+            'captain'=>'nullable',
+            'treasurer'=>'nullable',
+            'address'=>'nullable',
+            'city'=>'nullable',
+            'province'=>'nullable',
+            'region'=>'nullable',
+            'zipcode'=>'nullable',
+            'kg1'=>'nullable',
+            'kg2'=>'nullable',
+            'kg3'=>'nullable',
+            'kg4'=>'nullable',
+            'kg5'=>'nullable',
+            'kg6'=>'nullable',
+            'kg7'=>'nullable',
+
+        ]);
+        $barangay->update($data);
+        toast('Record Successfully Updated!','info');
+        return redirect('/barangay');
     }
 
     /**
