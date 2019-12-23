@@ -29,6 +29,9 @@
       .hidden{
         display:none;
       }
+      .req{
+        color:red;
+      }
     </style>
   </head>
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -103,16 +106,16 @@
             </li>
             <li class="nav-title">SETTINGS</li>
             
-            <li class="nav-item nav-dropdown">
+            <li class="nav-item nav-dropdown open">
               <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-folder"></i> Barangay Profile</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                  <a class="nav-link" href="login.html" target="_top">
+                  <a class="nav-link" href="/barangay" target="_top">
                     <i class="nav-icon icon-eye"></i> View Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="register.html" target="_top">
+                  <a class="nav-link" href="/purok" target="_top">
                     <i class="nav-icon icon-list"></i> Manage Purok</a>
                 </li>
               </ul>

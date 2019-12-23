@@ -19,8 +19,13 @@ Route::get('/', function () {
 Route::group(['middleware'=>'auth'],function(){
 
 Route::get('/dashboard', 'DashboardController@index');
+// household
 Route::resource('/household', 'HouseholdController');
+// Resident
 Route::resource('/resident', 'ResidentController');
+
+// Barangay Profile
+Route::resource('/barangay', 'BarangayController');
 
 });
 // Default Laravel Auth Scaffolding
