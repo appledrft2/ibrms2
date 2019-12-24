@@ -27,6 +27,9 @@ Route::resource('/resident', 'ResidentController');
 // Barangay Profile
 Route::resource('/barangay', 'BarangayController');
 
+// Purok Profile
+Route::resource('/purok', 'PurokController');
+
 });
 // Default Laravel Auth Scaffolding
 Auth::routes();

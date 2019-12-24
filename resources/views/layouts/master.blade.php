@@ -95,7 +95,7 @@
                 <i class="nav-icon icon-speedometer"></i> Dashboard
               </a>
             </li>
-            <li class="nav-item nav-dropdown">
+            <li class="nav-item nav-dropdown open">
               <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-people"></i> Residents</a>
               <ul class="nav-dropdown-items">
@@ -111,16 +111,16 @@
             </li>
             <li class="nav-title">SETTINGS</li>
             
-            <li class="nav-item nav-dropdown">
+            <li class="nav-item nav-dropdown open">
               <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-folder"></i> Barangay Profile</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                  <a class="nav-link" href="/barangay" target="_top">
+                  <a class="nav-link @if($title=='Barangay') active @endif" href="/barangay" target="_top">
                     <i class="nav-icon icon-note"></i> Barangay</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/purok" target="_top">
+                  <a class="nav-link @if($title=='Purok') active @endif" href="/purok" target="_top">
                     <i class="nav-icon icon-list"></i> Purok</a>
                 </li>
               </ul>
