@@ -15,6 +15,14 @@ class CreatePuroksTable extends Migration
     {
         Schema::create('puroks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('purok_id_num');
+            $table->string('prk_president');
+            $table->string('prk_name');
+            $table->string('prk_vice_pres');
+            $table->string('prk_address');
+            $table->string('prk_secretary');
+            $table->string('prk_map')->nullable();
+            $table->string('prk_treasurer');
             $table->timestamps();
         });
     }

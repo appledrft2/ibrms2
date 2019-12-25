@@ -19,7 +19,29 @@
                 				</tr>
                 			</thead>
                 			<tbody>
-                				
+                				@if(count($puroks) >= 0)
+                                    @foreach($puroks as $purok)
+
+                                        <tr>
+                                            <td>{{$purok->prk_name}}</td>
+                                            <td>{{$purok->prk_address}}</td>
+                                            <td>{{$purok->prk_president}}</td>
+                                            <td align="center">        
+                                                <div class="form-inline">
+                                                    <a href="/purok/{{$purok->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
+                                                    <form id="form{{$purok->id}}" method="POST" action="/purok/{{$purok->id}}" >
+                                                        @csrf
+                                                        @method('delete')
+                                                    <button type="submit" id="{{$purok->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
+                                                </div>
+                                            </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                @else
+
+                                @endif
                 			</tbody>
                 		</table>
                 	</div>

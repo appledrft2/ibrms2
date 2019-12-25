@@ -29,7 +29,7 @@
                 					@foreach($residents as $resident)
                 						<tr>
                 							<td width="15%">{{$resident->residentid}}</td>
-                							<td>{{$resident->firstname}}</td>
+                							<td>{{$resident->firstname}} {{$resident->middlename[0]}}. {{ $resident->lastname}}</td>
                 							<td>{{$resident->gender}}</td>                	
                 							<td>{{$resident->address->contactno}}</td>
                                             <td>{{$resident->address->street}}</td>
