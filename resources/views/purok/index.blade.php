@@ -25,7 +25,12 @@
                                         <tr>
                                             <td>{{$purok->prk_name}}</td>
                                             <td>{{$purok->prk_address}}</td>
-                                            <td>{{$purok->prk_president}}</td>
+                                            <td>
+                                                <b>President:</b> {{$purok->prk_president}}<br>
+                                                <b>V-President:</b> {{$purok->prk_vice_pres}}<br>
+                                                <b>Secretary:</b> {{$purok->prk_secretary}}<br>
+                                                <b>Treasurer:</b> {{$purok->prk_treasurer}}<br>
+                                            </td>
                                             <td align="center">        
                                                 <div class="form-inline">
                                                     <a href="/purok/{{$purok->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
