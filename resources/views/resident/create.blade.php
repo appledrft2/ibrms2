@@ -3,7 +3,7 @@
 @section('title',$title)
 @section('content')
 <div class="row">
-<form action="/resident" method="POST">
+<form action="/resident" autocomplete="off" method="POST" enctype="multipart/form-data">
     @csrf
 <div class="col-md-12">
     <div class="card">
@@ -14,6 +14,10 @@
         <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
+                        <div class="form-group">
+                            <strong>Upload Photo (optional)</strong>
+                            <input  type="file" class="form-control-file" name="img" >
+                        </div>
                         <div class="form-group">
                             <strong>First Name <span class=req>*</span></strong>
                             <input required type="text" class="form-control" name="firstname" placeholder="Enter First Name" value="" >
@@ -198,16 +202,19 @@
                                 <input type="text" class="form-control" name="spouse" placeholder="Enter Spouse's Name">
                                 
                         </div>
-                        <div class="form-group">
-                            <strong>Father's Name</strong>
-                                <input type="text" class="form-control" name="father" placeholder="Enter Father's Name">
+                        <div id="parents">
+                            <div class="form-group">
+                                <strong>Father's Name</strong>
+                                    <input type="text" class="form-control" name="father" placeholder="Enter Father's Name">
+                                    
                                 
-                            
-                        </div>
-                        <div class="form-group">
-                            <strong>Mother's Name</strong>
-                                <input type="text" class="form-control" name="mother" placeholder="Enter Mother's Name">
+                            </div>
+                            <div class="form-group">
+                                <strong>Mother's Name</strong>
+                                    <input type="text" class="form-control" name="mother" placeholder="Enter Mother's Name">
+                                    
                                 
+                            </div>
                             
                         </div>
 
@@ -316,31 +323,31 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <strong>Barangay <span class="req">*</span></strong>
-                                            <input type="text" class="form-control" name="barangay" placeholder="Enter Barangay" >
+                                            <input readonly type="text" value="{{$barangay->name}}" class="form-control" name="barangay" placeholder="Enter Barangay" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <strong>City <span class="req">*</span></strong>
-                                            <input type="text" class="form-control" name="city" placeholder="Enter City" >
+                                            <input readonly type="text" value="{{$barangay->city}}" class="form-control" name="city" placeholder="Enter City" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <strong>Province <span class="req">*</span></strong>
-                                            <input type="text" class="form-control" name="province" placeholder="Enter Province" >
+                                            <input readonly type="text" value="{{$barangay->province}}" class="form-control" name="province" placeholder="Enter Province" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <strong>Region <span class="req">*</span></strong>
-                                            <input type="text" class="form-control" name="region" placeholder="Enter Region" >
+                                            <input readonly type="text" value="{{$barangay->region}}" class="form-control" name="region" placeholder="Enter Region" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <strong>Zip Code <span class="req">*</span></strong>
-                                            <input type="text" class="form-control" name="zipcode" placeholder="Enter Zip Code" >
+                                            <input readonly type="text" value="{{$barangay->zipcode}}" class="form-control" name="zipcode" placeholder="Enter Zip Code" >
                                     </div>
                                 </div>
                             </div>
@@ -649,5 +656,7 @@
 
         }
     });
+
+
 </script>
 @endsection

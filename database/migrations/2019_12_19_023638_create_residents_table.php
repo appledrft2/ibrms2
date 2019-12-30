@@ -34,6 +34,7 @@ class CreateResidentsTable extends Migration
             $table->string('spouse')->nullable();
             $table->string('father');
             $table->string('mother');
+            $table->string('img');
 
 
 

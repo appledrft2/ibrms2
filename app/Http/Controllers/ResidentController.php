@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Barangay;
 use App\Resident;
 use App\Household;
 use App\Resident_Address;
 use App\Resident_Additional;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class ResidentController extends Controller
 {
@@ -29,7 +31,9 @@ class ResidentController extends Controller
     public function create()
     {
         $households = Household::latest()->get(); 
-        return view('resident.create',compact('households'));
+        $barangay = Barangay::first();
+       
+        return view('resident.create',compact('households','barangay'));
     }
 
     /**
@@ -91,6 +95,17 @@ class ResidentController extends Controller
         $additional->pcb = $request->pcb;
         $additional->save();
 
+        if(request()->hasFile('img')){
+            request()->validate([
+                'image' => 'file|image|max:5000',
+            ]);
+
+            $res = Resident::find($resident->id);
+
+            $res->update([
+                'img' => request()->img->store('uploads','public'),
+            ]);
+        }
 
         toast('Record Successfully Added!','success');
         return redirect('resident');
@@ -188,6 +203,18 @@ class ResidentController extends Controller
         ]);
 
         $additional->update($data3);
+
+        if(request()->hasFile('img')){
+            request()->validate([
+                'image' => 'file|image|max:5000',
+            ]);
+
+            $res = Resident::find($resident->id);
+
+            $res->update([
+                'img' => request()->img->store('uploads','public'),
+            ]);
+        }
 
 
         toast('Record Successfully Updated!','info');

@@ -3,7 +3,7 @@
 @section('title',$title)
 @section('content')
 <div class="row">
-<form action="/resident/{{$resident->id}}" method="POST">
+<form action="/resident/{{$resident->id}}" method="POST" enctype="multipart/form-data">
 @csrf
 @method('PUT')
 
@@ -16,6 +16,17 @@
         <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
+                        @if($resident->img)
+                            <div class="form-group">
+                                <div class="col-12">
+                                    <img src="{{asset('storage/' . $resident->img)}}" class="img-thumbnail" style="width:100px;height: 100px;">
+                                </div>
+                            </div>
+                        @endif
+                        <div class="form-group">
+                            <strong>Upload Photo (optional)</strong>
+                            <input  type="file" class="form-control-file" name="img" >
+                        </div>
                         <div class="form-group">
                             <strong>First Name <span class=req>*</span></strong>
                             <input required type="text" class="form-control" name="firstname" placeholder="Enter First Name" value="{{$resident->firstname}}" >
