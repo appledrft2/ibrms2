@@ -18,7 +18,7 @@
                     <div class="col-md-6">
                         @if($resident->img)
                             <div class="form-group">
-                                <div class="col-12">
+                                <div class="col-md-12">
                                     <img src="{{asset('storage/' . $resident->img)}}" class="img-thumbnail" style="width:100px;height: 100px;">
                                 </div>
                             </div>

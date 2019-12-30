@@ -97,7 +97,7 @@ class ResidentController extends Controller
 
         if(request()->hasFile('img')){
             request()->validate([
-                'image' => 'file|image|max:5000',
+                'img' => 'file|image|max:5000',
             ]);
 
             $res = Resident::find($resident->id);
@@ -206,7 +206,7 @@ class ResidentController extends Controller
 
         if(request()->hasFile('img')){
             request()->validate([
-                'image' => 'file|image|max:5000',
+                'img' => 'file|image|max:5000',
             ]);
 
             $res = Resident::find($resident->id);

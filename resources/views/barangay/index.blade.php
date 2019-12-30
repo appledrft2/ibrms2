@@ -5,19 +5,25 @@
   <div class="card">
   	<div class="card-header">
   		@if($barangays == null)
-  		<form method="POST" action="/barangay">
+  		<form method="POST" action="/barangay" enctype="multipart/form-data">
   			@csrf
   		<button class="btn btn-success">Save Profile</button>
   		</div>
 
   		<div class="card-body">
   			<div class="row">
-  				<div class="col-md-6">
-  					<div class="form-group">
-  						<label>Barangay Name <span class="req">*</span></label>
-  						<input required type="text" value="" class="form-control" name="name" placeholder="Enter Name">
-  					</div>
-  				</div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Barangay Logo (Optional)</label>
+              <input  type="file" class="form-control-file" name="logo">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Barangay Name <span class="req">*</span></label>
+              <input required type="text" class="form-control" name="name" placeholder="Enter Name">
+            </div>
+          </div>
   				<div class="col-md-6">
   					<div class="form-group">
   						<label>Barangay Secretary <span class="req">*</span></label>
@@ -117,7 +123,7 @@
 
   		</form>
   		@else
-  		<form method="POST" action="/barangay/{{$barangays->id}}">
+  		<form method="POST" action="/barangay/{{$barangays->id}}" enctype="multipart/form-data">
   			@csrf
   			@method('PUT')
   		<button class="btn btn-success">Update Profile</button>
@@ -125,6 +131,20 @@
 
   		<div class="card-body">
   			<div class="row">
+          @if($barangays->logo)
+             <div class="col-md-12">
+               <div class="form-group">
+                   <img src="{{asset('storage/' . $barangays->logo)}}" class="img-thumbnail" style="width:100px;height: 100px;">
+               </div>
+             </div>
+          @endif
+          <br>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Barangay Logo (Optional)</label>
+              <input  type="file" class="form-control-file" name="logo">
+            </div>
+          </div>
   				<div class="col-md-6">
   					<div class="form-group">
   						<label>Barangay Name <span class="req">*</span></label>

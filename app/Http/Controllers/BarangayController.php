@@ -57,7 +57,20 @@ class BarangayController extends Controller
             'kg7'=>'nullable',
 
         ]);
-        Barangay::create($data);
+        $brgy = Barangay::create($data);
+
+        if(request()->hasFile('logo')){
+            request()->validate([
+                'logo' => 'file|image|max:5000',
+            ]);
+
+            $res = Barangay::find($brgy->id);
+
+            $res->update([
+                'logo' => request()->logo->store('uploads','public'),
+            ]);
+        }
+
         toast('Record Successfully Saved!','success');
         return redirect('/barangay');
     }
@@ -113,6 +126,19 @@ class BarangayController extends Controller
 
         ]);
         $barangay->update($data);
+
+        if(request()->hasFile('logo')){
+            request()->validate([
+                'logo' => 'file|image|max:5000',
+            ]);
+
+            $res = Barangay::find($barangay->id);
+
+            $res->update([
+                'logo' => request()->logo->store('uploads','public'),
+            ]);
+        }
+
         toast('Record Successfully Updated!','info');
         return redirect('/barangay');
     }
