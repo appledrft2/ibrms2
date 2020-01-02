@@ -112,7 +112,7 @@
           						<td>{{$event->date}}</td>
           						<td class="text-center">
           							<div class="form-inline">
-          								<button class="btn btn-primary btn_edit mr-1" id="{{$event->id}}"><i class="fa fa-edit"></i></button>
+          								<button class="btn btn-primary btn_edit mr-1" id="{{$event}}"><i class="fa fa-edit"></i></button>
           								<form id="form{{$event->id}}" style="padding: 0px;margin: 0px;" action="/event/{{$event->id}}" method="POST" >
           									@csrf
           									@method('DELETE')
@@ -138,7 +138,7 @@
     
   </div>
 @endsection
-<!-- Modal -->
+<!-- Add Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -164,6 +164,23 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-warning">Add Event</button>
     	</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="edit_field">
+      	
       </div>
     </div>
   </div>
@@ -204,5 +221,14 @@
     calendar.render();
   });
 
+  $(document).on('click','.btn_edit',function(){
+  	let data = $(this).attr('id');
+  	data = JSON.parse(data);
+  	$('#edit_field').html('<div class="modal-body"><form method="POST" action="/event/'+data.id+'" id="editForm">@csrf @method("PUT")<div class="form-group"><label>Event Name</label><input type="text" class="form-control" name="name" value="'+data.name+'" placeholder="Enter Name"></div><div class="form-group"><label>Date</label><input type="date" value="'+data.date+'" class="form-control" name="date"></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="submit" class="btn btn-primary">Update Event</button></form> </div>');
+  	$('#editModal').modal('show');
+  });
 </script>
 @endsection
+
+
+      		

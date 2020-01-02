@@ -76,7 +76,14 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $data = $request->validate([
+            'name'=>'required',
+            'date'=>'required'
+        ]);
+
+        $event->update($data);
+        toast('Event Successfully Updated!','info');
+        return redirect('dashboard');
     }
 
     /**
