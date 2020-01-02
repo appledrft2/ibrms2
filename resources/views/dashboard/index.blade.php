@@ -63,7 +63,7 @@
               <a href="/resident/create" class="btn btn-primary btn-block"> Add New Resident</a>
               <a href="/resident/create" class="btn btn-success btn-block"> Issue Resident Clearance</a>
               <a href="/resident/create" class="btn btn-danger btn-block"> Issue Business Clearance</a>
-              <a href="/resident/create" class="btn btn-warning text-white btn-block"> New Event</a>
+              <button data-toggle="modal" data-target="#exampleModal" class="btn btn-warning text-white btn-block"> New Event</button>
             </div>
           </div>
         </div>
@@ -106,6 +106,23 @@
           					</tr>
           				</thead>
           				<tbody>
+          					@foreach($events as $event)
+          					<tr>
+          						<td>{{$event->name}}</td>
+          						<td>{{$event->date}}</td>
+          						<td class="text-center">
+          							<div class="form-inline">
+          								<button class="btn btn-primary btn_edit mr-1" id="{{$event->id}}"><i class="fa fa-edit"></i></button>
+          								<form id="form{{$event->id}}" style="padding: 0px;margin: 0px;" action="/event/{{$event->id}}" method="POST" >
+          									@csrf
+          									@method('DELETE')
+
+          									<button type="submit" id="{{$event->id}}" class="btn btn-danger btn_delete"><i class="fa fa-trash"></i> </button>
+          								</form>
+          							</div>
+          						</td>
+          					</tr>
+          					@endforeach
           					
           				</tbody>
           			</table>
@@ -121,6 +138,36 @@
     
   </div>
 @endsection
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<form method="POST" action="/event">
+      		@csrf
+        <div class="form-group">
+        	<label>Event Name</label>
+        	<input type="text" class="form-control" name="name" placeholder="Enter Name">
+        </div>
+        <div class="form-group">
+        	<label>Date</label>
+        	<input type="date" class="form-control" name="date">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-warning">Add Event</button>
+    	</form>
+      </div>
+    </div>
+  </div>
+</div>
 @section('script')
 <script>
 
@@ -137,13 +184,20 @@
       },
       defaultView: 'dayGridMonth',
       navLinks: true, // can click day/week names to navigate views
-      editable: true,
-      eventLimit: true, // allow "more" link when too many events
+      editable: false,
+      eventLimit: true,
       events: [
-        {
-          title: 'All Day Event',
-          start: '2020-01-01',
-        }
+        @foreach($events as $event)
+        	        {
+        	        title: '{{$event->name}}',
+        	        start: '{{$event->date}}',
+        			// end            : '2020-01-01',
+        			allDay         : true,
+        			textColor: 'white',
+        			backgroundColor: '#4dbd74',
+        			borderColor    : '#4dbd74',
+        	        },
+        @endforeach
       ]
     });
 

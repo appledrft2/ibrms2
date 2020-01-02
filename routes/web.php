@@ -17,9 +17,11 @@ Route::get('/', function () {
 
 // Route group for auth
 Route::group(['middleware'=>'auth'],function(){
-
+// Dashboard
 Route::get('/dashboard', 'DashboardController@index');
-// household
+// Event
+Route::resource('/event', 'EventController');
+// Household
 Route::resource('/household', 'HouseholdController');
 // Resident
 Route::resource('/resident', 'ResidentController');
