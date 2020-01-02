@@ -180,6 +180,16 @@
     @include('sweetalert::alert')
     <!-- Select2 -->
     <script src="{{asset('plugins/select2/js/select2.full.min.js')}}"></script>
+    <!-- full calendar -->
+    <link href='{{asset("packages/core/main.css")}}' rel='stylesheet' />
+    <link href='{{asset("packages/daygrid/main.css")}}' rel='stylesheet' />
+    <link href='{{asset("packages/timegrid/main.css")}}' rel='stylesheet' />
+    <link href='{{asset("packages/list/main.css")}}' rel='stylesheet' />
+    <script src='{{asset("packages/core/main.js")}}'></script>
+    <script src='{{asset("packages/interaction/main.js")}}'></script>
+    <script src='{{asset("packages/daygrid/main.js")}}'></script>
+    <script src='{{asset("packages/timegrid/main.js")}}'></script>
+    <script src='{{asset("packages/list/main.js")}}'></script>
   </body>
 </html>
 

@@ -31,6 +31,7 @@ class CreateBarangaysTable extends Migration
             $table->string('kg5');
             $table->string('kg6');
             $table->string('kg7');
+            $table->string('logo');
             $table->timestamps();
         });
     }
