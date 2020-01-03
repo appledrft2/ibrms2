@@ -16,4 +16,10 @@ class DashboardController extends Controller
     	$events = Event::latest()->get();
         return view('dashboard.index',compact('resident','barangay','events'));
     }
+    public function getParents(){
+    	$lastname = request()->lastname;
+    	$data = Resident::where('lastname','LIKE','%' . $lastname . '%')->get();
+
+    	return $data;
+    }
 }

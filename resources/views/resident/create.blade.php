@@ -1,6 +1,10 @@
 @extends('layouts.master')
 <?php $title = 'Resident'; ?>
 @section('title',$title)
+@section('styles')
+<link rel="stylesheet" type="text/css" href="{{asset('autocomplete/easy-autocomplete.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('autocomplete/easy-autocomplete.themes.min.css')}}">
+@endsection
 @section('content')
 <div class="row">
 <form action="/resident" autocomplete="off" method="POST" enctype="multipart/form-data">
@@ -205,13 +209,15 @@
                         <div id="parents">
                             <div class="form-group">
                                 <strong>Father's Name</strong>
-                                    <input type="text" class="form-control" name="father" placeholder="Enter Father's Name">
+                                   
+                                        <input type="text" id="father" class="form-control" name="father" placeholder="Enter Father's Name">
+                                   
                                     
                                 
                             </div>
                             <div class="form-group">
                                 <strong>Mother's Name</strong>
-                                    <input type="text" class="form-control" name="mother" placeholder="Enter Mother's Name">
+                                    <input type="text" class="form-control" id="mother" name="mother" placeholder="Enter Mother's Name">
                                     
                                 
                             </div>
@@ -657,6 +663,47 @@
         }
     });
 
+</script>
 
+<script type="text/javascript" src="{{asset('autocomplete/jquery.easy-autocomplete.min.js')}}"></script>
+<script type="text/javascript">
+   
+
+    $(document).on('keyup','input[name=lastname]',function(){
+        var val = $(this).val();
+
+        $.ajax({
+            url:'/getparents',
+            method:'POST',
+            data: {
+            "_token": "{{ csrf_token() }}",
+            "lastname": val
+            },
+            success:function(response){
+                console.log(response);
+                var data = {
+                    data: response,
+                    getValue: function(element) {
+                        return element.firstname+' '+element.lastname;
+                    },
+                  template: {
+                        type: "custom",
+                        method: function(value, item) {
+                            return item.firstname + " " + item.lastname;
+                        }
+                    }
+
+                       
+                }
+                $("#father").easyAutocomplete(data);
+                $("#mother").easyAutocomplete(data);
+            }
+        });
+        // if(val=='doromal'){
+        //     alert('1');
+        //     $("#father").easyAutocomplete(options1);
+        //     $("#mother").easyAutocomplete(options2);
+        // }
+    });
 </script>
 @endsection

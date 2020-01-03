@@ -224,9 +224,13 @@
   $(document).on('click','.btn_edit',function(){
   	let data = $(this).attr('id');
   	data = JSON.parse(data);
-  	$('#edit_field').html('<div class="modal-body"><form method="POST" action="/event/'+data.id+'" id="editForm">@csrf @method("PUT")<div class="form-group"><label>Event Name</label><input type="text" class="form-control" name="name" value="'+data.name+'" placeholder="Enter Name"></div><div class="form-group"><label>Date</label><input type="date" value="'+data.date+'" class="form-control" name="date"></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="submit" class="btn btn-primary">Update Event</button></form> </div>');
+  	$('#edit_field').html('<div class="modal-body"><form method="POST" action="/event/'+data.id+'" id="editForm">@csrf @method("PUT")<div class="form-group"><label>Event Name</label><input type="text" class="form-control" name="name" value="'+data.name+'" placeholder="Enter Name"></div><div class="form-group"><label>Date</label><input type="date" value="'+data.date+'" class="form-control" name="date"></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button><button type="submit" class="btn btn-primary btn_update">Update Event</button> </div></form>');
   	$('#editModal').modal('show');
   });
+
+   $(document).on('click','.btn_update',function(){
+   	$('#editForm').submit();
+   });
 </script>
 @endsection
 
