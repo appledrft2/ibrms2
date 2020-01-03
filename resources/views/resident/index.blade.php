@@ -16,8 +16,6 @@
                 					<th>Resident ID No.</th>
                 					<th>Fullname</th>
                 					<th>Gender</th>
-                
-
                 					<th>Contact</th>
                                     <th>Street</th>
                                     <th>Purok</th>

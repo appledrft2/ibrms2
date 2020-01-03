@@ -329,31 +329,31 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <strong>Barangay <span class="req">*</span></strong>
-                                            <input type="text" value="{{$resident->address->barangay}}" class="form-control" name="barangay" placeholder="Enter Barangay" >
+                                            <input readonly type="text" value="{{$resident->address->barangay}}" class="form-control" name="barangay" placeholder="Enter Barangay" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <strong>City <span class="req">*</span></strong>
-                                            <input type="text" value="{{$resident->address->city}}" class="form-control" name="city" placeholder="Enter City" >
+                                            <input readonly type="text" value="{{$resident->address->city}}" class="form-control" name="city" placeholder="Enter City" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <strong>Province <span class="req">*</span></strong>
-                                            <input type="text" value="{{$resident->address->province}}" class="form-control" name="province" placeholder="Enter Province" >
+                                            <input readonly type="text" value="{{$resident->address->province}}" class="form-control" name="province" placeholder="Enter Province" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <strong>Region <span class="req">*</span></strong>
-                                            <input type="text" value="{{$resident->address->region}}" class="form-control" name="region" placeholder="Enter Region" >
+                                            <input readonly type="text" value="{{$resident->address->region}}" class="form-control" name="region" placeholder="Enter Region" >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <strong>Zip Code <span class="req">*</span></strong>
-                                            <input type="text" value="{{$resident->address->zipcode }}"class="form-control" name="zipcode" placeholder="Enter Zip Code" >
+                                            <input readonly type="text" value="{{$resident->address->zipcode }}"class="form-control" name="zipcode" placeholder="Enter Zip Code" >
                                     </div>
                                 </div>
                             </div>
