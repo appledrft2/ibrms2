@@ -680,7 +680,7 @@
             "lastname": val
             },
             success:function(response){
-                console.log(response);
+              
                 var data = {
                     data: response,
                     getValue: function(element) {
@@ -706,17 +706,17 @@
             "_token": "{{ csrf_token() }}",
             "lastname": val
             },
-            success:function(response){
-                console.log(response);
+            success:function(response2){
+              
                 var data = {
-                    data: response,
-                    getValue: function(element) {
-                        return element.firstname+' '+element.middlename[0]+'. '+element.lastname;
+                    data: response2,
+                    getValue: function(element2) {
+                        return element2.firstname+' '+element2.middlename[0]+'. '+element2.lastname;
                     },
                   template: {
                         type: "custom",
-                        method: function(value, item) {
-                            return item.firstname +' '+item.middlename[0]+'. '+ item.lastname;
+                        method: function(value2, item2) {
+                            return item2.firstname +' '+item2.middlename[0]+'. '+ item2.lastname;
                         }
                     }
 
@@ -727,11 +727,6 @@
                 
             }
         });
-        // if(val=='doromal'){
-        //     alert('1');
-        //     $("#father").easyAutocomplete(options1);
-        //     $("#mother").easyAutocomplete(options2);
-        // }
     });
 </script>
 @endsection
