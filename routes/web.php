@@ -19,7 +19,8 @@ Route::get('/', function () {
 Route::group(['middleware'=>'auth'],function(){
 // Dashboard
 Route::get('/dashboard', 'DashboardController@index');
-Route::post('/getparents', 'DashboardController@getparents');
+Route::post('/getfather', 'DashboardController@getfather');
+Route::post('/getmother', 'DashboardController@getmother');
 // Event
 Route::resource('/event', 'EventController');
 // Household

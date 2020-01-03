@@ -673,7 +673,7 @@
         var val = $(this).val();
 
         $.ajax({
-            url:'/getparents',
+            url:'/getfather',
             method:'POST',
             data: {
             "_token": "{{ csrf_token() }}",
@@ -684,19 +684,47 @@
                 var data = {
                     data: response,
                     getValue: function(element) {
-                        return element.firstname+' '+element.lastname;
+                        return element.firstname+' '+element.middlename[0]+'. '+element.lastname;
                     },
                   template: {
                         type: "custom",
                         method: function(value, item) {
-                            return item.firstname + " " + item.lastname;
+                            return item.firstname +' '+item.middlename[0]+'. '+ item.lastname;
                         }
                     }
 
                        
                 }
                 $("#father").easyAutocomplete(data);
+                
+            }
+        });
+        $.ajax({
+            url:'/getmother',
+            method:'POST',
+            data: {
+            "_token": "{{ csrf_token() }}",
+            "lastname": val
+            },
+            success:function(response){
+                console.log(response);
+                var data = {
+                    data: response,
+                    getValue: function(element) {
+                        return element.firstname+' '+element.middlename[0]+'. '+element.lastname;
+                    },
+                  template: {
+                        type: "custom",
+                        method: function(value, item) {
+                            return item.firstname +' '+item.middlename[0]+'. '+ item.lastname;
+                        }
+                    }
+
+                       
+                }
+
                 $("#mother").easyAutocomplete(data);
+                
             }
         });
         // if(val=='doromal'){
