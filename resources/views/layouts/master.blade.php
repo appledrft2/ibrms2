@@ -93,7 +93,7 @@
                 <i class="nav-icon icon-speedometer"></i> Dashboard
               </a>
             </li>
-            <li class="nav-item nav-dropdown ">
+            <li class="nav-item nav-dropdown @if($title=='Household' || $title=='Resident') open @endif">
               <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-people"></i> Residents</a>
               <ul class="nav-dropdown-items">

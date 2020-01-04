@@ -120,7 +120,7 @@ class ResidentController extends Controller
      */
     public function show(Resident $resident)
     {
-        //
+        return view('resident.show',compact('resident'));
     }
 
     /**

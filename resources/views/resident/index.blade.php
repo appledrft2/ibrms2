@@ -33,13 +33,13 @@
                                             <td>{{$resident->address->street}}</td>
                                             <td>{{$resident->address->purok}}</td>
 
-                							<td align="center">        
+                							<td align="center" width="15%">        
 		                                    	<div class="form-inline">
-		                                    		<a href="/resident/{{$resident->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
+		                                    		<a title="View Profile" href="/resident/{{$resident->id}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-id-card"></i></a><a title="Edit Resident" href="/resident/{{$resident->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
 		                                    		<form id="form{{$resident->id}}" method="POST" action="/resident/{{$resident->id}}" >
 		                                    			@csrf
 		                                    			@method('delete')
-		                                			<button type="submit" id="{{$resident->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
+		                                			<button title="Delete Resident" type="submit" id="{{$resident->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
 		                                    	</div>
 		                                    </form>
 			                                </td>
