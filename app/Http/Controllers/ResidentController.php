@@ -151,6 +151,7 @@ class ResidentController extends Controller
         $households = Household::latest()->get(); 
         $father = Resident::find($resident->father_id);
         $mother = Resident::find($resident->mother_id);
+        $puroks = Purok::latest()->get();
 
         if($father == null && $mother == null){
             $father = '';
@@ -158,7 +159,7 @@ class ResidentController extends Controller
         }
 
         
-        return view('resident.edit',compact('households','resident','father','mother'));
+        return view('resident.edit',compact('households','resident','father','mother','puroks'));
     }
 
     /**

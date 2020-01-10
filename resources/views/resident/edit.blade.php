@@ -321,7 +321,18 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <strong>Purok <span class="req">*</span></strong>
-                                            <input required type="text"value="{{$resident->address->purok}}" class="form-control" name="purok" placeholder="Enter Purok">
+                                            <select name="purok" required class="form-control select2bs4">
+                                            @if(count($puroks))
+                                                <option selected disabled>Select</option>
+                                                @foreach($puroks as $purok)
+
+                                                    <option @if($resident->address->purok == $purok->id)selected @endif value="{{$purok->id}}">{{$purok->prk_name}}</option>
+                                                @endforeach
+
+                                            @else
+                                            <option value="" selected disabled>No records found.</option>
+                                            @endif
+                                        </select>
                                     </div>
                                 </div>
                             </div>
