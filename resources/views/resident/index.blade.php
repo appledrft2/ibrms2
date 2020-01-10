@@ -35,7 +35,7 @@
 
                 							<td align="center" width="15%">        
 		                                    	<div class="form-inline">
-		                                    		<a title="View Profile" href="/resident/{{$resident->id}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-id-card"></i></a><a title="Edit Resident" href="/resident/{{$resident->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
+		                                    		<!-- <a title="View Profile" href="/resident/{{$resident->id}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-id-card"></i></a> --><a title="Edit Resident" href="/resident/{{$resident->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
 		                                    		<form id="form{{$resident->id}}" method="POST" action="/resident/{{$resident->id}}" >
 		                                    			@csrf
 		                                    			@method('delete')
