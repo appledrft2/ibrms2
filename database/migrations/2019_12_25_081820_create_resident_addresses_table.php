@@ -19,7 +19,7 @@ class CreateResidentAddressesTable extends Migration
             $table->string('ownership');
             $table->string('houseno');
             $table->string('street');
-            $table->string('purok');
+            $table->bigInteger('purok_id')->unsigned()->index();
             $table->string('barangay');
             $table->string('city');
             $table->string('province');
@@ -30,6 +30,8 @@ class CreateResidentAddressesTable extends Migration
             $table->bigInteger('household_id')->unsigned()->index();
             $table->timestamps();
 
+            $table->foreign('purok_id')
+            ->references('id')->on('puroks');
             $table->foreign('resident_id')
             ->references('id')->on('residents')
             ->onDelete('cascade');

@@ -17,8 +17,8 @@
                 					<th>Fullname</th>
                 					<th>Gender</th>
                 					<th>Contact</th>
-                                    <th>Street</th>
-                                    <th>Purok</th>
+                                    <th>DOB</th>
+                                    
                 					<th>Action</th>
                 				</tr>
                 			</thead>
@@ -30,9 +30,7 @@
                 							<td>{{$resident->firstname}} {{$resident->middlename[0]}}. {{ $resident->lastname}}</td>
                 							<td>{{$resident->gender}}</td>                	
                 							<td>{{$resident->address->contactno}}</td>
-                                            <td>{{$resident->address->street}}</td>
-                                            <td>{{$resident->address->purok}}</td>
-
+                                            <td>{{$resident->dob}}</td>
                 							<td align="center" width="15%">        
 		                                    	<div class="form-inline">
 		                                    		<!-- <a title="View Profile" href="/resident/{{$resident->id}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-id-card"></i></a> --><a title="Edit Resident" href="/resident/{{$resident->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>

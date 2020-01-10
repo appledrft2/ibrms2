@@ -326,7 +326,7 @@
                                                 <option selected disabled>Select</option>
                                                 @foreach($puroks as $purok)
 
-                                                    <option @if($resident->address->purok == $purok->id)selected @endif value="{{$purok->id}}">{{$purok->prk_name}}</option>
+                                                    <option @if($resident->address->purok_id == $purok->id)selected @endif value="{{$purok->id}}">{{$purok->prk_name}}</option>
                                                 @endforeach
 
                                             @else

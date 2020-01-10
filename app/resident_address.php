@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Purok;
 use App\Resident;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,4 +15,6 @@ class Resident_Address extends Model
         return $this->belongsTo(Resident::class);
 
     }
+
+ 
 }

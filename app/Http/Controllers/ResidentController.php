@@ -21,6 +21,7 @@ class ResidentController extends Controller
     public function index()
     {
         $residents = Resident::latest()->get();
+        
         return view('resident.index',compact('residents'));
     }
 
@@ -90,7 +91,7 @@ class ResidentController extends Controller
         $address->ownership = $request->ownership;
         $address->houseno = $request->houseno;
         $address->street = $request->street;
-        $address->purok = $request->purok;
+        $address->purok_id = $request->purok;
         $address->barangay = $request->barangay;
         $address->city = $request->city;
         $address->province = $request->province;
@@ -216,7 +217,7 @@ class ResidentController extends Controller
             'ownership'=>'nullable',
             'houseno'=>'nullable',
             'street'=>'nullable',
-            'purok'=>'nullable',
+            'purok_id'=>'nullable',
             'barangay'=>'nullable',
             'city'=>'nullable',
             'province'=>'nullable',
