@@ -10,8 +10,10 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header ">
-            <h5 class="card-title float-left"><i class="fa fa-user"></i> Personal Information | Resident ID No. <i class="fa fa-question-circle" title="Resident ID is automatically generated"></i>: </h5>
-            <h5 class="float-right"><input type="text" class="text-center form-control form-control-sm" name="residentid" placeholder="Household ID No." value="{{$resident->residentid}}" readonly></h5>
+            <h5 class="card-title "><div class="form-inline">
+                <i class="fa fa-user"></i> &nbsp;Personal Information | Resident ID No. <i class="fa fa-question-circle" title="Resident ID is automatically generated"></i>:&nbsp;
+                            <input type="text" class="text-center form-control form-control-sm" name="residentid" placeholder="Household ID No." value="{{$resident->residentid}}" readonly>
+            </div></h5>
         </div>
         <div class="card-body">
                 <div class="row">
@@ -213,13 +215,13 @@
                         </div>
                         <div class="form-group">
                             <strong>Father's Name</strong>
-                                <input type="text" class="form-control" name="father" value="{{$resident->father}}" placeholder="Enter Father's Name">
+                                <input id="father" type="text" class="form-control" name="father" value="@if($father != null) {{$father->firstname}} {{$father->middlename[0]}}. {{$father->lastname}} @endif" placeholder="Enter Father's Name">
                                 
                             
                         </div>
                         <div class="form-group">
                             <strong>Mother's Name</strong>
-                                <input type="text" class="form-control" name="mother" value="{{$resident->mother}}" placeholder="Enter Mother's Name">
+                                <input id="mother" type="text" class="form-control" name="mother" value="@if($mother != null) {{$mother->firstname}} {{$mother->middlename[0]}}. {{$mother->lastname}} @endif" placeholder="Enter Mother's Name">
                                 
                             
                         </div>
@@ -662,5 +664,75 @@
 
         }
     });
+
+</script>
+
+<script type="text/javascript" src="{{asset('autocomplete/jquery.easy-autocomplete.min.js')}}"></script>
+<script type="text/javascript">
+   
+
+    $(document).ready(function(){
+        var val = $('input[name=lastname]').val();
+
+        $.ajax({
+            url:'/getfather',
+            method:'POST',
+            data: {
+            "_token": "{{ csrf_token() }}",
+            "lastname": val
+            },
+            success:function(response){
+              
+                var data = {
+                    data: response,
+                    getValue: function(element) {
+                        return element.firstname+' '+element.middlename[0]+'. '+element.lastname;
+                    },
+                  template: {
+                        type: "custom",
+                        method: function(value, item) {
+                            return item.firstname +' '+item.middlename[0]+'. '+ item.lastname+' - DOB ('+item.dob+') ';
+                        }
+                    }
+
+                       
+                }
+                $("#father").easyAutocomplete(data);
+
+                
+
+                
+            }
+        });
+        $.ajax({
+            url:'/getmother',
+            method:'POST',
+            data: {
+            "_token": "{{ csrf_token() }}",
+            "lastname": val
+            },
+            success:function(response2){
+              
+                var data = {
+                    data: response2,
+                    getValue: function(element2) {
+                        return element2.firstname+' '+element2.middlename[0]+'. '+element2.lastname;
+                    },
+                  template: {
+                        type: "custom",
+                        method: function(value2, item2) {
+                            return item2.firstname +' '+item2.middlename[0]+'. '+ item2.lastname+' - DOB ('+item2.dob+') ';
+                        }
+                    }
+
+                       
+                }
+
+                $("#mother").easyAutocomplete(data);
+                
+            }
+        });
+    });
+
 </script>
 @endsection

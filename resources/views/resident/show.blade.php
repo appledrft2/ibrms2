@@ -79,13 +79,13 @@
     </li>
     <li class="nav-item">
     <a class="nav-link" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile">
-    <i class="icon-basket-loaded"></i> Permit
+    <i class="fa fa-building"></i> Business Permit
 
     </a>
     </li>
     <li class="nav-item">
     <a class="nav-link" data-toggle="tab" href="#messages4" role="tab" aria-controls="messages">
-    <i class="icon-pie-chart"></i> Charts</a>
+    <i class="fa fa-gavel"></i> Cases</a>
     </li>
     </ul>
     <div class="tab-content">

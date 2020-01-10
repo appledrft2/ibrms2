@@ -12,8 +12,10 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header ">
-            <h5 class="card-title float-left"><i class="fa fa-user"></i> Personal Information | Resident ID No. <i class="fa fa-question-circle" title="Resident ID is automatically generated"></i>: </h5>
-            <h5 class="float-right"><input type="text" class="text-center form-control form-control-sm" name="residentid" placeholder="Household ID No." value="{{rand(10,99).'-'.rand(1111111111,9999999999)}}" readonly></h5>
+            <h5 class="card-title "><div class="form-inline">
+                <i class="fa fa-user"></i> &nbsp;Personal Information | Resident ID No. <i class="fa fa-question-circle" title="Resident ID is automatically generated"></i>:&nbsp;
+                            <input type="text" class="text-center form-control form-control-sm" name="residentid" placeholder="Household ID No." value="{{date('y').'-'.date('mdHis')}}" readonly>
+            </div></h5>
         </div>
         <div class="card-body">
                 <div class="row">
@@ -319,7 +321,20 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <strong>Purok <span class="req">*</span></strong>
-                                            <input  type="text" class="form-control" name="purok" placeholder="Enter Purok">
+                                            <select name="purok" required class="form-control select2bs4">
+                                            
+                                            @if(count($puroks))
+                                                <option selected disabled>Select</option>
+                                                @foreach($puroks as $purok)
+
+                                                    <option value="{{$purok->id}}">{{$purok->prk_name}}</option>
+                                                @endforeach
+
+                                            @else
+                                            <option value="" selected disabled>No records found.</option>
+                                            @endif
+                                            
+                                    </select>   
                                     </div>
                                 </div>
                             </div>
@@ -689,13 +704,16 @@
                   template: {
                         type: "custom",
                         method: function(value, item) {
-                            return item.firstname +' '+item.middlename[0]+'. '+ item.lastname;
+                            return item.firstname +' '+item.middlename[0]+'. '+ item.lastname+' - DOB ('+item.dob+') ';
                         }
                     }
 
                        
                 }
                 $("#father").easyAutocomplete(data);
+
+                
+
                 
             }
         });
@@ -716,7 +734,7 @@
                   template: {
                         type: "custom",
                         method: function(value2, item2) {
-                            return item2.firstname +' '+item2.middlename[0]+'. '+ item2.lastname;
+                            return item2.firstname +' '+item2.middlename[0]+'. '+ item2.lastname+' - DOB ('+item2.dob+') ';
                         }
                     }
 
@@ -728,5 +746,6 @@
             }
         });
     });
+
 </script>
 @endsection

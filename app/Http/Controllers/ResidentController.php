@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Purok;
 use App\Barangay;
 use App\Resident;
 use App\Household;
@@ -29,11 +30,12 @@ class ResidentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+
         $households = Household::latest()->get(); 
         $barangay = Barangay::first();
-       
-        return view('resident.create',compact('households','barangay'));
+        $puroks = Purok::latest()->get();
+        return view('resident.create',compact('households','barangay','puroks'));
     }
 
     /**
@@ -44,7 +46,7 @@ class ResidentController extends Controller
      */
     public function store(Request $request)
     {
-
+       
         // Resident Info
         $resident = new Resident;
         $resident->residentid = $request->residentid;
@@ -66,6 +68,21 @@ class ResidentController extends Controller
         $resident->spouse  = $request->spouse;
         $resident->father  = $request->father;
         $resident->mother  = $request->mother;
+        if($request->father != null || $request->mother != null)
+        {
+        $fname = substr($request->father, 0, 4);
+        $mname = substr($request->mother, 0, 4);
+        // dd($mname);
+         $father = Resident::where('firstname','LIKE',$fname.'%')->where('lastname','=',$request->lastname)->first();
+         $mother = Resident::where('firstname','LIKE',$mname.'%')->where('lastname','=',$request->lastname)->first();
+         // dd($father->id);
+         $resident->father_id  = $father->id;
+         $resident->mother_id  = $mother->id;
+
+        }
+        
+        
+        
         $resident->save();
         // Residential Address
         $address = new Resident_Address;
@@ -132,7 +149,16 @@ class ResidentController extends Controller
     public function edit(Resident $resident)
     {
         $households = Household::latest()->get(); 
-        return view('resident.edit',compact('households','resident'));
+        $father = Resident::find($resident->father_id);
+        $mother = Resident::find($resident->mother_id);
+
+        if($father == null && $mother == null){
+            $father = '';
+            $mother = '';
+        }
+
+        
+        return view('resident.edit',compact('households','resident','father','mother'));
     }
 
     /**
@@ -167,6 +193,19 @@ class ResidentController extends Controller
             'mother'=>'nullable',
             'father'=>'nullable',
         ]);
+
+        if($request->father != null || $request->mother != null)
+        {
+        $fname = substr($request->father, 0, 4);
+        $mname = substr($request->mother, 0, 4);
+        // dd($mname);
+         $father = Resident::where('firstname','LIKE',$fname.'%')->where('lastname','=',$request->lastname)->first();
+         $mother = Resident::where('firstname','LIKE',$mname.'%')->where('lastname','=',$request->lastname)->first();
+         // dd($father->id);
+         $resident->father_id  = $father->id;
+         $resident->mother_id  = $mother->id;
+
+        }
 
         $resident->update($data);
 

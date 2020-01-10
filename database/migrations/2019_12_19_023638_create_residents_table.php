@@ -35,10 +35,16 @@ class CreateResidentsTable extends Migration
             $table->string('father');
             $table->string('mother');
             $table->string('img');
-
-
-
+            $table->bigInteger('father_id')->unsigned()->index();
+            $table->bigInteger('mother_id')->unsigned()->index();
             $table->timestamps();
+
+            $table->foreign('father_id')
+            ->references('id')->on('residents')
+            ->onDelete('cascade');
+            $table->foreign('mother_id')
+            ->references('id')->on('residents')
+            ->onDelete('cascade');
         });
     }
 

@@ -15,6 +15,15 @@ class Resident extends Model
         return $this->hasOne(Resident_Address::class);
 
     }
+    public function getfath()
+    {
+        return $this->belongsTo('Resident', 'father_id');
+    }
+    public function getmoth()
+    {
+        return $this->belongsTo('Resident', 'mother_id');
+    }
+
     public function additional(){
 
         return $this->hasOne(Resident_Additional::class);

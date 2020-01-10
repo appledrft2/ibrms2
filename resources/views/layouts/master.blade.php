@@ -40,7 +40,7 @@
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
        <!--  <img class="navbar-brand-full" src="{{asset('coreui/img/ibrmslogo.PNG')}}" width="100" height="50" alt="CoreUI Logo">
         <img class="navbar-brand-minimized" src="{{asset('coreui/img/brand/sygnet.svg')}}" width="30" height="30" alt="CoreUI Logo"> -->
         <b>IBRMS</b>Admin
@@ -97,16 +97,19 @@
               <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-people"></i> Residents</a>
               <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <a class="nav-link @if($title=='Household') active @endif" href="/household" target="_top">
-                    <i class="nav-icon icon-home"></i> Manage Household</a>
-                </li>
+                
                 <li class="nav-item">
                   <a class="nav-link @if($title=='Resident') active @endif" href="/resident" target="_top">
                     <i class="nav-icon icon-user"></i> Manage Resident</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link @if($title=='Household') active @endif" href="/household" target="_top">
+                    <i class="nav-icon icon-home"></i> Manage Household</a>
+                </li>
               </ul>
             </li>
+
+           
             <li class="nav-title">SETTINGS</li>
             
             <li class="nav-item nav-dropdown ">
