@@ -108,6 +108,10 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item">
+                  <a class="nav-link @if($title=='Judicial') active @endif" href="/judicial" target="_top">
+                    <i class="nav-icon icon-pencil"></i> Judicial</a>
+                </li>
 
            
             <li class="nav-title">SETTINGS</li>
@@ -229,4 +233,5 @@
         });
    });
 </script>
+
 @yield('script')
