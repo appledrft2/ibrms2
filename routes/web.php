@@ -35,6 +35,7 @@ Route::resource('/barangay', 'BarangayController');
 Route::resource('/purok', 'PurokController');
 // Judicial 
 Route::resource('/judicial', 'JudicialController');
+Route::put('/judicial/{id}/status', 'JudicialController@updateStatus');
 
 });
 // Default Laravel Auth Scaffolding

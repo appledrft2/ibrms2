@@ -38,11 +38,16 @@
                <textarea class="form-control" cols=5 rows=5 readonly placeholder="Enter Details">{{$judicial->details}}</textarea>
                <div class="form-group">
                  <label>Status</label>
-                 <select class='select2 form-control'>
-                   <option>Select Status</option>
-                   <option @if($judicial->status == 'On-going') selected @endif>On-going</option>
-                   <option @if($judicial->status == 'Resolved') selected @endif>Resolved</option>
-                 </select>
+                 <form action="/judicial/{{$judicial->id}}/status" method="POST">
+                   @csrf
+                   @method('put')
+                   <input type="hidden" name="id" value="{{$judicial->id}}">
+                   <select onchange="submit()" name="status" class='select2 form-control'>
+                     <option>Select Status</option>
+                     <option @if($judicial->status == 'On-going') selected @endif>On-going</option>
+                     <option @if($judicial->status == 'Resolved') selected @endif>Resolved</option>
+                   </select>
+                 </form>
                </div>
            </div>
         </div>

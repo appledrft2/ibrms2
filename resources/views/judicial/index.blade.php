@@ -27,7 +27,7 @@
                                         <td>{{$judicial->caseno}}</td>
                                         <td>{{$judicial->created_at->isoformat('Y-m-d')}}</td>
                                         <td>
-                                            @if($judicial->status == 'resolved')
+                                            @if($judicial->status == 'Resolved')
                                             <span class="badge badge-success">Resolved</span>
                                             @else
                                             <span class="badge badge-warning">On-going</span>

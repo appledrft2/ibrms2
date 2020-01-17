@@ -69,7 +69,7 @@ class JudicialController extends Controller
             $respondent->save();
         }
         
-
+        toast('Record Successfully Added!','success');
         return redirect('judicial');
     }
 
@@ -94,7 +94,10 @@ class JudicialController extends Controller
      */
     public function edit(Judicial $judicial)
     {
-        //
+        $residents = Resident::latest()->get();
+        $respondents = Judicial_Respondent::where('judicial_id','=',$judicial->id)->get();
+
+        return view('judicial.edit',compact('judicial','respondents','residents'));
     }
 
     /**
@@ -106,7 +109,40 @@ class JudicialController extends Controller
      */
     public function update(Request $request, Judicial $judicial)
     {
-        //
+        $data = request()->validate([
+            'caseno'=>'required',
+            'kpformno'=>'required',
+            'resident_id'=>'required',
+            'details'=>'required',
+            'status'=>'required'
+        ]);
+
+        $judicial->update($data);
+
+        Judicial_Respondent::where('judicial_id','=',$judicial->id)->delete();
+
+        
+        $resp = $request->respondents;
+        $x = 0;
+        if(count($resp) != 1){
+            for($i = 0;$i < count($resp);$i++){
+                $respondent = new Judicial_Respondent;
+
+                $respondent->judicial_id = $judicial->id;
+                $respondent->resident_id = $resp[$x];
+                $x++;
+                $respondent->save();
+            }
+        }else{
+            $respondent = new Judicial_Respondent;
+            $respondent->judicial_id = $judicial->id;
+            $respondent->resident_id = $resp[0];
+
+            $respondent->save();
+        }
+        
+        toast('Record Successfully Updated!','info');
+        return redirect('judicial');
     }
 
     /**
@@ -120,5 +156,16 @@ class JudicialController extends Controller
         $judicial->delete();
         toast('Record Successfully Deleted!','error');
         return redirect('judicial');
+    }
+    public function updateStatus(Request $request){
+        
+        
+        $data = request()->validate([
+            'status'=>'required'
+        ]);
+        $judicial = Judicial::findOrFail($request->id);
+        $judicial->update($data);
+        toast('Status Successfully Updated!','success');
+        return redirect('judicial/'.$judicial->id);
     }
 }
