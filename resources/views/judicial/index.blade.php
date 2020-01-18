@@ -15,7 +15,8 @@
                 				<tr>
                 					
                                     <th>Case No.</th>
-                					<th>Date</th>
+                                    <th>Case Details</th>
+                					<th>Date Created</th>
                                     <th>Status</th>
                                     <th>Action</th>
                 				</tr>
@@ -25,7 +26,8 @@
                                     @foreach($judicials as $judicial)
                                     <tr>
                                         <td>{{$judicial->caseno}}</td>
-                                        <td>{{$judicial->created_at->isoformat('Y-m-d')}}</td>
+                                        <td>{{$judicial->details}}</td>
+                                        <td>{{date('M d, D Y', strtotime($judicial->created_at))}}</td>
                                         <td>
                                             @if($judicial->status == 'Resolved')
                                             <span class="badge badge-success">Resolved</span>
