@@ -70,9 +70,11 @@ class JudicialKp08Controller extends Controller
      * @param  \App\Judicial_Kp08  $judicial_Kp08
      * @return \Illuminate\Http\Response
      */
-    public function edit(Judicial_Kp08 $judicial_Kp08)
+    public function edit($judicial_id,$judicial_Kp08)
     {
-        //
+        $judicial = Judicial::findOrFail($judicial_id);
+        $kp08 = Judicial_Kp08::findOrFail($judicial_Kp08);
+        return view('judicial_kp08.edit',compact('judicial','kp08'));
     }
 
     /**
@@ -82,9 +84,21 @@ class JudicialKp08Controller extends Controller
      * @param  \App\Judicial_Kp08  $judicial_Kp08
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Judicial_Kp08 $judicial_Kp08)
+    public function update($judicial_id,$judicial_Kp08)
     {
-        //
+          $data = request()->validate([
+            'hearing_date'=>'required',
+            'hearing_time'=>'required',
+            'judicial_id' => 'required'
+        ]);
+
+        
+        $kp08 = Judicial_Kp08::findOrFail($judicial_Kp08);
+
+        $kp08->update($data);
+
+        toast('Record Successfully Updated!','info');
+        return redirect('judicial/'.$judicial_id);
     }
 
     /**
