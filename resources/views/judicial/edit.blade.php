@@ -40,7 +40,7 @@
                                  @endforeach
                                 @endif
                             </select>
-                              <button type="button" class="btn btn-danger btn-sm mt-1 mb-2 remove_existing_resp" id="{{$res->id}}">remove</button>
+                              <button type="button" class="btn btn-danger btn-sm mt-1 remove_existing_resp" id="{{$res->id}}">remove</button>
                           </div>
                         @endforeach
                        @endif

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Judicial;
 use App\Resident;
+use App\Judicial_Kp08;
 use App\Judicial_Respondent;
 use Illuminate\Http\Request;
 
@@ -82,8 +83,8 @@ class JudicialController extends Controller
     public function show(Judicial $judicial)
     {
        $respondents = Judicial_Respondent::where('judicial_id','=',$judicial->id)->get();
-
-        return view('judicial.show',compact('judicial','respondents'));
+       $kp08s = Judicial_Kp08::where('judicial_id','=',$judicial->id)->get();
+        return view('judicial.show',compact('judicial','respondents','kp08s'));
     }
 
     /**
