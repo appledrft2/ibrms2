@@ -13,9 +13,9 @@ class JudicialKp08Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($judicial_id)
     {
-        //
+         return redirect('judicial/'.$judicial_id);
     }
 
     /**
@@ -37,6 +37,17 @@ class JudicialKp08Controller extends Controller
      */
     public function store($judicial_id,Request $request)
     {
+        $data = request()->validate([
+            'hearing_date'=>'required',
+            'hearing_time'=>'required',
+            'judicial_id' => 'required'
+        ]);
+
+        
+
+        Judicial_Kp08::create($data);
+
+        toast('Record Successfully Added!','success');
         return redirect('judicial/'.$judicial_id);
     }
 
@@ -46,9 +57,11 @@ class JudicialKp08Controller extends Controller
      * @param  \App\Judicial_Kp08  $judicial_Kp08
      * @return \Illuminate\Http\Response
      */
-    public function show(Judicial_Kp08 $judicial_Kp08)
+    public function show($judicial_id,$judicial_Kp08)
     {
-        //
+        
+        $judicial_Kp08 = Judicial_Kp08::findOrFail($judicial_Kp08);
+        return view('judicial_kp08.show',compact('judicial_Kp08'));
     }
 
     /**
@@ -80,8 +93,11 @@ class JudicialKp08Controller extends Controller
      * @param  \App\Judicial_Kp08  $judicial_Kp08
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Judicial_Kp08 $judicial_Kp08)
+    public function destroy($judicial_id)
     {
-        //
+        $judicial_Kp08 = Judicial_Kp08::findOrFail(request()->kpid);
+        $judicial_Kp08->delete();
+        toast('Record Successfully Deleted!','error');
+        return redirect('judicial/'.$judicial_id);
     }
 }

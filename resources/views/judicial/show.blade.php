@@ -87,9 +87,18 @@
                 <td>{{$kp08->hearing_time}}</td>
                 <td width="15%">{{$kp08->created_at}}</td>
                 <td class="text-center" width="15%">
-                  <button class="btn btn-success"><i class="fa fa-print"></i></button>
-                  <button class="btn btn-primary"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                  <div class="form-inline">
+                        <a href="/judicial/{{$judicial->id}}/kp08/{{$kp08->id}}" class="btn mr-1 btn-sm btn-success"><i class="fa fa-print"></i></a>
+                        <a href="/judicial/{{$judicial->id}}/kp08/{{$kp08->id}}/edit" class="btn mr-1  btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                        <form id="form{{$kp08->id}}" method="POST" action="/judicial/{{$judicial->id}}/kp08/{{$kp08->id}}" >
+                                    @csrf
+                                    @method('delete')
+                                  
+                                    <input type="hidden" name="kpid" value="{{$kp08->id}}">
+                                <button title="Delete Case" type="submit" id="{{$kp08->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
+                          
+                        </form>
+                    </div>
                 </td>
               </tr>
               @endforeach

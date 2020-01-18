@@ -34,6 +34,10 @@
         color:red;
       }
     </style>
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
+
   </head>
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <header class="app-header navbar">
@@ -198,6 +202,8 @@
     <script src='{{asset("packages/daygrid/main.js")}}'></script>
     <script src='{{asset("packages/timegrid/main.js")}}'></script>
     <script src='{{asset("packages/list/main.js")}}'></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
   </body>
 </html>
 
