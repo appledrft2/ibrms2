@@ -16,13 +16,13 @@ class CreateResidentAdditionalsTable extends Migration
         Schema::create('resident__additionals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('resident_id')->unsigned()->index();;
-            $table->string('educational_attainment');
-            $table->string('employment');
-            $table->string('dswd');
-            $table->string('forpeace');
-            $table->string('philhealthno');
-            $table->string('phcategory');
-            $table->string('pcb');
+            $table->string('educational_attainment')->nullable();
+            $table->string('employment')->nullable();
+            $table->string('dswd')->nullable();
+            $table->string('forpeace')->nullable();
+            $table->string('philhealthno')->nullable();
+            $table->string('phcategory')->nullable();
+            $table->string('pcb')->nullable();
             $table->timestamps();
 
             $table->foreign('resident_id')

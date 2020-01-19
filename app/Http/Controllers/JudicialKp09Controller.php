@@ -35,7 +35,8 @@ class JudicialKp09Controller extends Controller
         $data = request()->validate([
             'hearing_date'=>'required',
             'hearing_time'=>'required',
-            'judicial_id' => 'required'
+            'judicial_id' => 'required',
+            'kpformno'=>'required'
         ]);
 
         

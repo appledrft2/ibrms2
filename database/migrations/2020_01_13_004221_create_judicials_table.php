@@ -16,10 +16,10 @@ class CreateJudicialsTable extends Migration
         Schema::create('judicials', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('resident_id')->unsigned()->index();
-            $table->string('caseno');
-            $table->string('kpformno');
-            $table->string('details');
-            $table->string('status');
+            $table->string('caseno')->nullable();
+            $table->string('kpformno')->nullable();
+            $table->string('details')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
 
             $table->foreign('resident_id')

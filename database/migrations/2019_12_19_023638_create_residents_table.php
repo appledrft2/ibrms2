@@ -15,28 +15,28 @@ class CreateResidentsTable extends Migration
     {
         Schema::create('residents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('residentid');
-            $table->string('firstname');
-            $table->string('middlename');
-            $table->string('lastname');
-            $table->string('extension');
-            $table->string('dob');
-            $table->string('pob');
-            $table->string('nationality');
-            $table->string('religion');
-            $table->string('gender');
-            $table->string('pwd');
-            $table->string('deceased');
-            $table->string('bloodtype');
-            $table->string('height');
-            $table->string('weight');
-            $table->string('civilstatus');
+            $table->string('residentid')->nullable();
+            $table->string('firstname')->nullable();
+            $table->string('middlename')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('extension')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('pob')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('pwd')->nullable();
+            $table->string('deceased')->nullable();
+            $table->string('bloodtype')->nullable();
+            $table->string('height')->nullable();
+            $table->string('weight')->nullable();
+            $table->string('civilstatus')->nullable();
             $table->string('spouse')->nullable();
-            $table->string('father');
-            $table->string('mother');
-            $table->string('img');
-            $table->bigInteger('father_id')->unsigned()->index();
-            $table->bigInteger('mother_id')->unsigned()->index();
+            $table->string('father')->nullable();
+            $table->string('mother')->nullable();
+            $table->string('img')->nullable();
+            $table->bigInteger('father_id')->unsigned()->index()->nullable();
+            $table->bigInteger('mother_id')->unsigned()->index()->nullable();
             $table->timestamps();
 
             $table->foreign('father_id')

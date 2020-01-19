@@ -18,6 +18,7 @@ class CreateJudicialKp08sTable extends Migration
             $table->bigInteger('judicial_id')->unsigned()->index();
             $table->date('hearing_date');
             $table->string('hearing_time');
+            $table->string('kpformno');
             $table->timestamps();
 
             $table->foreign('judicial_id')

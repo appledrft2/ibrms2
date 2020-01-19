@@ -37,10 +37,12 @@ class JudicialKp08Controller extends Controller
      */
     public function store($judicial_id,Request $request)
     {
+        
         $data = request()->validate([
             'hearing_date'=>'required',
             'hearing_time'=>'required',
-            'judicial_id' => 'required'
+            'judicial_id' => 'required',
+            'kpformno'=>'nullable'
         ]);
 
         

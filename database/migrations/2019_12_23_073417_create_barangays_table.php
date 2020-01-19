@@ -15,23 +15,23 @@ class CreateBarangaysTable extends Migration
     {
         Schema::create('barangays', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('secretary');
-            $table->string('captain');
-            $table->string('treasurer');
-            $table->string('address');
-            $table->string('city');
-            $table->string('province');
-            $table->string('region');
-            $table->string('zipcode');
-            $table->string('kg1');
-            $table->string('kg2');
-            $table->string('kg3');
-            $table->string('kg4');
-            $table->string('kg5');
-            $table->string('kg6');
-            $table->string('kg7');
-            $table->string('logo');
+            $table->string('name')->nullable();
+            $table->string('secretary')->nullable();
+            $table->string('captain')->nullable();
+            $table->string('treasurer')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('province')->nullable();
+            $table->string('region')->nullable();
+            $table->string('zipcode')->nullable();
+            $table->string('kg1')->nullable();
+            $table->string('kg2')->nullable();
+            $table->string('kg3')->nullable();
+            $table->string('kg4')->nullable();
+            $table->string('kg5')->nullable();
+            $table->string('kg6')->nullable();
+            $table->string('kg7')->nullable();
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

@@ -73,6 +73,7 @@
         <table class="table table-bordered table-striped" id="dtt1">
           <thead>
             <tr>
+              <th>KP Form No.</th>
               <th>Hearing Date</th>
               <th>Hearing Time</th>
               <th>Date/Time Created and Filed</th>
@@ -83,6 +84,7 @@
             @if(count($kp08s))
               @foreach($kp08s as $kp08)
               <tr>
+                <td>{{$kp08->kpformno}}</td>
                 <td>{{$kp08->hearing_date}}</td>
                 <td>{{$kp08->hearing_time}}</td>
                 <td width="15%">{{$kp08->created_at}}</td>
@@ -117,6 +119,7 @@
         <table class="table table-bordered table-striped" id="dtt2">
           <thead>
             <tr>
+              <th>KP Form No.</th>
               <th>Appearance Date</th>
               <th>Appearance Time</th>
               <th>Date/Time Created and Filed</th>
@@ -127,6 +130,7 @@
             @if(count($kp09s))
               @foreach($kp09s as $kp09)
               <tr>
+                <td>{{$kp09->kpformno}}</td>
                 <td>{{$kp09->hearing_date}}</td>
                 <td>{{$kp09->hearing_time}}</td>
                 <td width="15%">{{$kp09->created_at}}</td>

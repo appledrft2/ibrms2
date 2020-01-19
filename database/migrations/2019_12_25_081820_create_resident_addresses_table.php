@@ -16,17 +16,17 @@ class CreateResidentAddressesTable extends Migration
         Schema::create('resident__addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('resident_id')->unsigned()->index();;
-            $table->string('ownership');
-            $table->string('houseno');
-            $table->string('street');
+            $table->string('ownership')->nullable();
+            $table->string('houseno')->nullable();
+            $table->string('street')->nullable();
             $table->bigInteger('purok_id')->unsigned()->index();
-            $table->string('barangay');
-            $table->string('city');
-            $table->string('province');
-            $table->string('region');
-            $table->string('zipcode');
-            $table->string('contactno');
-            $table->string('emailadd');
+            $table->string('barangay')->nullable();
+            $table->string('city')->nullable();
+            $table->string('province')->nullable();
+            $table->string('region')->nullable();
+            $table->string('zipcode')->nullable();
+            $table->string('contactno')->nullable();
+            $table->string('emailadd')->nullable();
             $table->bigInteger('household_id')->unsigned()->index();
             $table->timestamps();
 
