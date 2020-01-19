@@ -16,11 +16,11 @@
     	<div class="row">
     		<div class="col-6">
     			<div class="form-group">
-    				<label>Hearing Date <span class="req">*</span></label>
+    				<label>Appearance Date <span class="req">*</span></label>
     				<input type="date" class="form-control" name="hearing_date">
     			</div>
     			<div class="form-group">
-                    <label>Hearing Time <span class="req">*</span></label>
+                    <label>Appearance Time <span class="req">*</span></label>
                 <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
                     <input type="text" name="hearing_time" class="form-control datetimepicker-input" data-target="#datetimepicker3"/>
                     <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">

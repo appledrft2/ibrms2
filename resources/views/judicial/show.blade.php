@@ -117,8 +117,8 @@
         <table class="table table-bordered table-striped" id="dtt2">
           <thead>
             <tr>
-              <th>Hearing Date</th>
-              <th>Hearing Time</th>
+              <th>Appearance Date</th>
+              <th>Appearance Time</th>
               <th>Date/Time Created and Filed</th>
               <th >Action</th>
             </tr>
