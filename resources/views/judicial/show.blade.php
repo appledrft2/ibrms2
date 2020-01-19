@@ -55,15 +55,15 @@
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">KP08</a>
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#kp08" role="tab" aria-controls="home" aria-selected="true">KP08</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">KP09</a>
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#kp09" role="tab" aria-controls="profile" aria-selected="false">KP09</a>
       </li>
  
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="tab-pane fade show active" id="kp08" role="tabpanel" aria-labelledby="home-tab">
       <div class="table table-responsive">
         <div class="form-group">
           <span class="float-right mb-3">
@@ -90,12 +90,12 @@
                   <div class="form-inline">
                         <a href="/judicial/{{$judicial->id}}/kp08/{{$kp08->id}}" class="btn mr-1 btn-sm btn-success"><i class="fa fa-print"></i></a>
                         <a href="/judicial/{{$judicial->id}}/kp08/{{$kp08->id}}/edit" class="btn mr-1  btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                        <form id="form{{$kp08->id}}" method="POST" action="/judicial/{{$judicial->id}}/kp08/{{$kp08->id}}" >
+                        <form id="formkp8{{$kp08->id}}" method="POST" action="/judicial/{{$judicial->id}}/kp08/{{$kp08->id}}" >
                                     @csrf
                                     @method('delete')
                                   
                                     <input type="hidden" name="kpid" value="{{$kp08->id}}">
-                                <button title="Delete Case" type="submit" id="{{$kp08->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
+                                <button title="Delete Case" type="submit" id="formkp8{{$kp08->id}}" class="btn btn-danger btn-sm btn_deletekp"><i class="fa fa-trash"></i></button>
                           
                         </form>
                     </div>
@@ -107,8 +107,49 @@
         </table>
       </div>
     </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      ...
+      <div class="tab-pane fade" id="kp09" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="table table-responsive">
+        <div class="form-group">
+          <span class="float-right mb-3">
+            <a href="/judicial/{{$judicial->id}}/kp09/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> New Form</a>
+          </span>
+        </div>
+        <table class="table table-bordered table-striped" id="dtt2">
+          <thead>
+            <tr>
+              <th>Hearing Date</th>
+              <th>Hearing Time</th>
+              <th>Date/Time Created and Filed</th>
+              <th >Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @if(count($kp09s))
+              @foreach($kp09s as $kp09)
+              <tr>
+                <td>{{$kp09->hearing_date}}</td>
+                <td>{{$kp09->hearing_time}}</td>
+                <td width="15%">{{$kp09->created_at}}</td>
+                <td class="text-center" width="15%">
+                  <div class="form-inline">
+                        <a href="/judicial/{{$judicial->id}}/kp09/{{$kp09->id}}" class="btn mr-1 btn-sm btn-success"><i class="fa fa-print"></i></a>
+                        <a href="/judicial/{{$judicial->id}}/kp09/{{$kp09->id}}/edit" class="btn mr-1  btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                        <form id="formkp9{{$kp09->id}}" method="POST" action="/judicial/{{$judicial->id}}/kp09/{{$kp09->id}}" >
+                                    @csrf
+                                    @method('delete')
+                                  
+                                    <input type="hidden" name="kpid2" value="{{$kp09->id}}">
+                                <button title="Delete Case" type="submit" id="formkp9{{$kp09->id}}" class="btn btn-danger btn-sm btn_deletekp"><i class="fa fa-trash"></i></button>
+                          
+                        </form>
+                    </div>
+                </td>
+              </tr>
+              @endforeach
+            @endif
+          </tbody>
+        </table>
+      </div>
     </div>
       
     </div>

@@ -38,6 +38,8 @@ Route::resource('/judicial', 'JudicialController');
 Route::put('/judicial/{judicial}/status', 'JudicialController@updateStatus');
 // Judicial Kp08
 Route::resource('/judicial/{judicial}/kp08', 'JudicialKp08Controller');
+// Judicial Kp09
+Route::resource('/judicial/{judicial}/kp09', 'JudicialKp09Controller');
 
 
 });

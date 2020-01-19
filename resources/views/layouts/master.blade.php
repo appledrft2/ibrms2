@@ -217,6 +217,7 @@
   })
   $(document).ready( function () {
       $('#dtt1').DataTable();
+      $('#dtt2').DataTable();
   } );
   // btn for deleting data
    $(document).on('click', '.btn_delete', function(e){
@@ -234,6 +235,25 @@
 
           if(result.value){
             $('#form'+id).submit();
+          }
+
+        });
+   });
+  $(document).on('click', '.btn_deletekp', function(e){
+        e.preventDefault();
+        var id = $(this).attr('id');
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+
+          if(result.value){
+            $('#'+id).submit();
           }
 
         });
