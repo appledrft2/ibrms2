@@ -16,7 +16,6 @@
                 					<th>Resident ID No.</th>
                 					<th>Fullname</th>
                 					<th>Gender</th>
-                					<th>Contact</th>
                                     <th>DOB</th>
                                     
                 					<th>Action</th>
@@ -29,7 +28,7 @@
                 							<td width="15%">{{$resident->residentid}}</td>
                 							<td>{{$resident->firstname}} {{$resident->middlename[0]}}. {{ $resident->lastname}}</td>
                 							<td>{{$resident->gender}}</td>                	
-                							<td>{{$resident->address->contactno}}</td>
+                		
                                             <td>{{$resident->dob}}</td>
                 							<td align="center" width="15%">        
 		                                    	<div class="form-inline">
