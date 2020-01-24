@@ -15,9 +15,15 @@
     <div class="card-body">
     	<div class="row">
            <div class="col-6">
-                <div class="form-group">
-                       <label>Complainant </label>
-                       <input type="text" readonly class="form-control" name="" value="{{$judicial->resident->firstname}} {{$judicial->resident->middlename[0]}}. {{$judicial->resident->lastname}}">
+                 <div class="form-group">
+                       <label>Complainants </label>
+                   
+                       <ul>
+                        @foreach($complainants as $comp)
+                          <li>{{$comp->resident->firstname}} {{$comp->resident->middlename[0]}}. {{$comp->resident->lastname}}</li>
+                        @endforeach
+                      </ul>
+                       
                    </div>
 
                    <div class="form-group">

@@ -114,7 +114,7 @@
             </li>
             <li class="nav-item">
                   <a class="nav-link @if($title=='Judicial') active @endif" href="/judicial" target="_top">
-                    <i class="nav-icon icon-pencil"></i> Judicial</a>
+                    <i class="nav-icon icon-shield"></i> Judicial</a>
                 </li>
 
            

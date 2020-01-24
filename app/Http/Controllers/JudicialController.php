@@ -8,6 +8,7 @@ use App\Judicial_Kp08;
 use App\Judicial_Kp09;
 use App\Judicial_Respondent;
 use Illuminate\Http\Request;
+use App\Judicial_Complainant;
 
 class JudicialController extends Controller
 {
@@ -44,14 +45,32 @@ class JudicialController extends Controller
         $data = request()->validate([
             'caseno'=>'required',
             'kpformno'=>'required',
-            'resident_id'=>'required',
             'details'=>'required',
-            'status'=>'required'
+            'status'=>'required',
+
         ]);
 
         $judicial = Judicial::create($data);
 
-        
+        $comps = $request->complainants;
+        $x = 0;
+        if(count($comps) != 1){
+            for($i = 0;$i < count($comps);$i++){
+                $complainants = new Judicial_Complainant;
+
+                $complainants->judicial_id = $judicial->id;
+                $complainants->resident_id = $comps[$x];
+                $x++;
+                $complainants->save();
+            }
+        }else{
+            $complainants = new Judicial_Complainant;
+            $complainants->judicial_id = $judicial->id;
+            $complainants->resident_id = $resp[0];
+
+            $complainants->save();
+        }
+
         $resp = $request->respondents;
         $x = 0;
         if(count($resp) != 1){
@@ -84,9 +103,10 @@ class JudicialController extends Controller
     public function show(Judicial $judicial)
     {
        $respondents = Judicial_Respondent::where('judicial_id','=',$judicial->id)->get();
+       $complainants = Judicial_Complainant::where('judicial_id','=',$judicial->id)->get();
        $kp08s = Judicial_Kp08::OrderBy('created_at','ASC')->where('judicial_id','=',$judicial->id)->get();
        $kp09s = Judicial_Kp09::OrderBy('created_at','ASC')->where('judicial_id','=',$judicial->id)->get();
-        return view('judicial.show',compact('judicial','respondents','kp08s','kp09s'));
+        return view('judicial.show',compact('judicial','respondents','kp08s','kp09s','complainants'));
     }
 
     /**
@@ -98,9 +118,10 @@ class JudicialController extends Controller
     public function edit(Judicial $judicial)
     {
         $residents = Resident::latest()->get();
+        $complainants = Judicial_Complainant::where('judicial_id','=',$judicial->id)->get();
         $respondents = Judicial_Respondent::where('judicial_id','=',$judicial->id)->get();
 
-        return view('judicial.edit',compact('judicial','respondents','residents'));
+        return view('judicial.edit',compact('judicial','respondents','residents','complainants'));
     }
 
     /**
@@ -115,7 +136,6 @@ class JudicialController extends Controller
         $data = request()->validate([
             'caseno'=>'required',
             'kpformno'=>'required',
-            'resident_id'=>'required',
             'details'=>'required',
             'status'=>'required'
         ]);
@@ -123,8 +143,27 @@ class JudicialController extends Controller
         $judicial->update($data);
 
         Judicial_Respondent::where('judicial_id','=',$judicial->id)->delete();
+        Judicial_Complainant::where('judicial_id','=',$judicial->id)->delete();
 
-        
+        $comp = $request->complainants;
+        $x = 0;
+        if(count($comp) != 1){
+            for($i = 0;$i < count($comp);$i++){
+                $complainant = new Judicial_Complainant;
+
+                $complainant->judicial_id = $judicial->id;
+                $complainant->resident_id = $comp[$x];
+                $x++;
+                $complainant->save();
+            }
+        }else{
+            $complainant = new Judicial_Complainant;
+            $complainant->judicial_id = $judicial->id;
+            $complainant->resident_id = $comp[0];
+
+            $complainant->save();
+        }
+
         $resp = $request->respondents;
         $x = 0;
         if(count($resp) != 1){

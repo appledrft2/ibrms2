@@ -16,22 +16,37 @@
     	<div class="row">
            <div class="col-6">
                 <div class="form-group">
-                       <label>Complainant <span class="req">*</span></label>
-                       <select class="form-control select2" required name="resident_id">
-                           <option>Select Complainant</option>
-                           @if(count($residents))
-                            @foreach($residents as $res)
-                                <option @if($judicial->resident_id == $res->id) selected @endif value="{{$res->id}}">{{$res->firstname}} {{$res->middlename[0]}}. {{$res->lastname}}</option>
-                            @endforeach
-                           @endif
-                       </select>
+                       <label >Complainant <span class="req">*</span></label>
+                       @if(count($complainants) > 0)
+                        @foreach($complainants as $comp)
+                          <div id="cp{{$comp->id}}" class="form-group ">
+                            <select required class="form-control select2" name="complainants[]">
+                                <option>Select Complainants</option>
+                                @if(count($residents))
+                                 @foreach($residents as $res)
+                                     <option @if($comp->resident_id == $res->id) selected @endif value="{{$res->id}}">{{$res->firstname}} {{$res->middlename[0]}}. {{$res->lastname}}</option>
+                                 @endforeach
+                                @endif
+                            </select>
+                              <button type="button" class="btn btn-danger btn-sm mt-1 remove_existing_comp" id="{{$comp->id}}">remove</button>
+                          </div>
+                        @endforeach
+                       @endif
+                </div>
+                <div id="moreComplainants">
+                 
+                </div>
+
+                <div class="">
+                    <button type="button" class="btn btn-sm btn-primary" id="addmorec">Add Complainant</button>
+                    <button type="button" class="btn btn-sm btn-danger hidden" id="removec">Remove</button>
                 </div>
 
                    <div class="form-group">
                        <label>Respondent <span class="req">*</span></label>
                        @if(count($respondents) > 0)
                         @foreach($respondents as $resp)
-                          <div id="rp{{$res->id}}" class="form-group ">
+                          <div id="rp{{$resp->id}}" class="form-group ">
                             <select required class="form-control select2" name="respondents[]">
                                 <option>Select Repondents</option>
                                 @if(count($residents))
@@ -40,7 +55,7 @@
                                  @endforeach
                                 @endif
                             </select>
-                              <button type="button" class="btn btn-danger btn-sm mt-1 remove_existing_resp" id="{{$res->id}}">remove</button>
+                              <button type="button" class="btn btn-danger btn-sm mt-1 remove_existing_resp" id="{{$resp->id}}">remove</button>
                           </div>
                         @endforeach
                        @endif
@@ -53,8 +68,8 @@
                    </div>
 
                    <div class="">
-                       <button type="button" class="btn btn-primary" id="addmore">Add Respondent</button>
-                       <button type="button" class="btn btn-danger hidden" id="remove">Remove</button>
+                       <button type="button" class="btn btn-sm btn-primary" id="addmore">Add Respondent</button>
+                       <button type="button" class="btn btn-sm btn-danger hidden" id="remove">Remove</button>
                    </div>
 
            </div>
@@ -109,5 +124,41 @@
       
       $('#rp'+id).remove();
     });
+
+    
+</script>
+
+<script type="text/javascript">
+  var i = x= 0;
+      $('#addmorec').click(function(){
+          i++;
+          x = i + 1;
+          $('#moreComplainants').append('<div id="complainant'+i+'"><div class="form-group">                                              <select class="form-control select2" required name="complainants[]" required>                           <option>Select Complainants</option>                           @if(count($residents))                            @foreach($residents as $res)                                <option value="{{$res->id}}">{{$res->firstname}} {{$res->middlename[0]}}. {{$res->lastname}}</option>                            @endforeach                           @endif                       </select>                   </div></div>');
+          $('#removec').removeClass('hidden');
+          $('.select2').select2()
+
+      });
+
+      $('#removec').click(function(){
+          
+          if(i > 0){
+
+              $('#complainant'+i).remove();
+              i--;
+
+              if(i == 0){
+                  $('#removec').addClass('hidden');
+              }
+             
+          }
+      });
+
+
+  $(document).on('click','.remove_existing_comp',function(){
+    var id = $(this).attr('id');
+    
+    $('#cp'+id).remove();
+ 
+  });
 </script>
 @endsection

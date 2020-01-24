@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Judicial extends Model
 {
-    protected $guarded = [];
+    protected $fillable = ['caseno','kpformno','details','status'];
 
     public function respondents(){
     	return $this->hasMany(Judicial_Respondent::class);
