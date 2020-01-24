@@ -66,7 +66,7 @@ class JudicialController extends Controller
         }else{
             $complainants = new Judicial_Complainant;
             $complainants->judicial_id = $judicial->id;
-            $complainants->resident_id = $resp[0];
+            $complainants->resident_id = $comps[0];
 
             $complainants->save();
         }
