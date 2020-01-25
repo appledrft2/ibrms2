@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Clearance;
 use App\Resident_Address;
 use App\Resident_Additional;
 use Illuminate\Database\Eloquent\Model;
@@ -27,6 +28,11 @@ class Resident extends Model
     public function additional(){
 
         return $this->hasOne(Resident_Additional::class);
+
+    }
+    public function clearances(){
+
+        return $this->hasMany(Clearance::class);
 
     }
 }

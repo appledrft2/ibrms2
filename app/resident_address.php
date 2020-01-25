@@ -16,5 +16,11 @@ class Resident_Address extends Model
 
     }
 
+    public function purok()
+    {
+
+        return $this->belongsTo(Purok::class);
+    }
+
  
 }

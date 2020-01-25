@@ -97,7 +97,7 @@
                 <i class="nav-icon icon-speedometer"></i> Dashboard
               </a>
             </li>
-            <li class="nav-item nav-dropdown @if($title=='Household' || $title=='Resident') open @endif">
+            {{-- <li class="nav-item nav-dropdown @if($title=='Household' || $title=='Resident') open @endif">
               <a class="nav-link nav-dropdown-toggle" href="#">
                 <i class="nav-icon icon-people"></i> Residents</a>
               <ul class="nav-dropdown-items">
@@ -111,12 +111,24 @@
                     <i class="nav-icon icon-home"></i> Manage Household</a>
                 </li>
               </ul>
+            </li> --}}
+            <li class="nav-item">
+                  <a class="nav-link @if($title=='Resident') active @endif" href="/resident" target="_top">
+                    <i class="nav-icon icon-user"></i> Manage Resident</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link @if($title=='Household') active @endif" href="/household" target="_top">
+                    <i class="nav-icon icon-home"></i> Manage Household</a>
+                </li>
+            <li class="nav-item">
+              <a class="nav-link @if($title=='Judicial') active @endif" href="/judicial" target="_top">
+                <i class="nav-icon icon-shield"></i> Judicial</a>
             </li>
             <li class="nav-item">
-                  <a class="nav-link @if($title=='Judicial') active @endif" href="/judicial" target="_top">
-                    <i class="nav-icon icon-shield"></i> Judicial</a>
-                </li>
-
+              <a class="nav-link @if($title=='Clearance') active @endif" href="/clearancelist" target="_top">
+                <i class="nav-icon icon-printer"></i> Clearance</a>
+            </li>
+            
            
             <li class="nav-title">SETTINGS</li>
             
