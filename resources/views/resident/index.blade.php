@@ -25,7 +25,7 @@
         							<td width="15%">{{$resident->residentid}}</td>
         							<td>{{$resident->firstname}} {{$resident->middlename[0]}}. {{ $resident->lastname}}</td>
         							<td>{{$resident->gender}}</td>                	
-                                    <td>{{$resident->dob}}</td>
+                                    <td>{{date('M d, Y', strtotime($resident->dob))}}</td>
         							<td align="center" width="15%">        
                                     	<div class="form-inline">
                                     		<!-- <a title="View Profile" href="/resident/{{$resident->id}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-id-card"></i></a> --><a title="Edit Resident" href="/resident/{{$resident->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>

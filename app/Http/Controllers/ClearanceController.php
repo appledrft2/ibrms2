@@ -39,9 +39,23 @@ class ClearanceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($resident_id,Request $request)
     {
-        //
+        $data = request()->validate([
+            'resident_id' => 'required',
+            'clearance_no' => 'required',
+            'ornum' => 'required',
+            'date_issued' => 'required',
+            'date_valid' => 'required',
+            'purpose' => 'required'
+        ]);
+
+
+
+        Clearance::create($data);
+
+        toast('Record Successfully Added!', 'success');
+        return redirect('resident/' . $resident_id.'/clearance');
     }
 
     /**
@@ -63,7 +77,7 @@ class ClearanceController extends Controller
      */
     public function edit(Resident $resident,Clearance $clearance)
     {
-        return $resident;
+        return view('clearance.edit',compact('resident','clearance'));
     }
 
     /**
@@ -73,9 +87,22 @@ class ClearanceController extends Controller
      * @param  \App\Clearance  $clearance
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clearance $clearance)
+    public function update(Resident $resident, Clearance $clearance)
     {
-        //
+
+        $data = request()->validate([
+            'resident_id' => 'required',
+            'clearance_no' => 'required',
+            'ornum' => 'required',
+            'date_issued' => 'required',
+            'date_valid' => 'required',
+            'purpose' => 'required'
+        ]);
+
+        $clearance->update($data);
+
+        toast('Record Successfully Updated!', 'info');
+        return redirect('resident/' . $resident->id . '/clearance');
     }
 
     /**
@@ -84,8 +111,11 @@ class ClearanceController extends Controller
      * @param  \App\Clearance  $clearance
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Clearance $clearance)
+    public function destroy(Resident $resident,Clearance $clearance)
     {
-        //
+        $clearance = Clearance::findOrFail($clearance->id);
+        $clearance->delete();
+        toast('Record Successfully Deleted!', 'error');
+        return redirect('resident/' . $resident->id.'/clearance');
     }
 }

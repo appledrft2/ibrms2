@@ -22,7 +22,7 @@
         							<td width="15%">{{$resident->residentid}}</td>
         							<td>{{$resident->firstname}} {{$resident->middlename[0]}}. {{ $resident->lastname}}</td>
         							<td>{{$resident->gender}}</td>                	
-                                    <td>{{$resident->dob}}</td>
+                                    <td>{{date('M d, Y', strtotime($resident->dob))}}</td>
         							<td align="center" width="15%">        
 									<a href="/resident/{{$resident->id}}/clearance" title="View Clearance" class="btn btn-success btn-sm "><i class="fa fa-search"></i> View Clearances</a>
 	                                </td>

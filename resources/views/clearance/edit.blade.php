@@ -7,8 +7,9 @@
 @endif
 
 <div class="card">
-   <form action="/resident/{{$resident->id}}/clearance" method="POST" >
+<form action="/resident/{{$resident->id}}/clearance/{{$clearance->id}}" method="POST" >
         @csrf
+        @method('PUT')
         <input type="hidden" name="resident_id" value="{{$resident->id}}">
     <div class="card-header form-inline">
         <p>Clearance Details | Resident Clearance ID No.: <input type="text" name="clearance_no" class="form-control"  readonly value="RBC-{{date('y').'-'.date('mdHis')}}">
@@ -37,28 +38,25 @@
             <div class="col-6">
                 <div class="form-group">
     				<label>Purpose <span class="req">*</span></label>
-                    <textarea class="form-control" name="purpose" cols="5" rows="5" name="purpose" placeholder="Enter Purpose" ></textarea>    
+                    <textarea class="form-control" name="purpose" cols="5" rows="5" name="purpose" placeholder="Enter Purpose" >{{$clearance->purpose}}</textarea>    
                 </div>
                 <div class="form-group">
     				<label>O.R. Number <span class="req">*</span></label>
-                    <input  type="text" class="form-control" name="ornum" value="" placeholder="Enter O.R. Number">
+                    <input  type="text" class="form-control" name="ornum" value="{{$clearance->ornum}}" placeholder="Enter O.R. Number">
                 </div>
                 
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
                         <label>Date Issued <span class="req">*</span></label>
-                        <input  type="date" class="form-control" name="date_issued" readonly value="{{ date('Y-m-d')}}">
+                        <input  type="date" class="form-control" name="date_issued" readonly value="{{$clearance->date_issued}}" >
                         </div>
                     </div>
                     <div class="col-6">
-                        <?php 
-                            $now = date('Y-m-d');
-                            $addmonth = date("Y-m-d", strtotime("+1 month", strtotime( $now )));
-                        ?>
+                       
                         <div class="form-group">
                         <label>Valid Until <span class="req">*</span></label>
-                        <input  type="date" class="form-control" name="date_valid" value="{{$addmonth}}" readonly>
+                        <input  type="date" class="form-control" name="date_valid" value="{{$clearance->date_valid}}"  readonly>
                         </div>
                     </div>
                 </div>
@@ -70,7 +68,7 @@
     <div class="card-footer">
         <div class="">
             <a href="/resident/{{$resident->id}}/clearance" class="btn btn-danger">Cancel</a>
-            <button type="submit" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add Clearance</button>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update Clearance</button>
         </div>
       </div>
     </div>
