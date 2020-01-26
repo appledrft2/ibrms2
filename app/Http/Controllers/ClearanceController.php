@@ -28,9 +28,9 @@ class ClearanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(Resident $resident)
+    {   
+        return view('clearance.create',compact('resident'));
     }
 
     /**
@@ -52,7 +52,7 @@ class ClearanceController extends Controller
      */
     public function show(Resident $resident,Clearance $clearance)
     {
-        
+        return 'print resident_id:'.$resident->id.' - clearance_id:'.$clearance->id;
     }
 
     /**
@@ -61,9 +61,9 @@ class ClearanceController extends Controller
      * @param  \App\Clearance  $clearance
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clearance $clearance)
+    public function edit(Resident $resident,Clearance $clearance)
     {
-        //
+        return $resident;
     }
 
     /**

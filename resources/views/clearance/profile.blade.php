@@ -37,7 +37,7 @@
         <div class="card-header">Resident Clearance Requests</div>
         <div class="card-body">
             <div class="form-group">
-                <button class="btn btn-success"><i class="fa fa-plus-circle"></i> Issue Clearance</button>
+                <a href="/resident/{{$resident->id}}/clearance/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Issue Clearance</a>
             </div>
             <div class="table-responsive">
                 		<table id="dtt1" class="table table-hover table-striped table-bordered">
@@ -58,7 +58,18 @@
                                             <td>{{$clearance->purpose}}</td>
                                             <td>{{$clearance->date_issued}}</td>
                                             <td>{{$clearance->date_valid}}</td>
-                                            <td>1</td>
+                                            <td align="center" width="15%">        
+                                                <div class="form-inline">
+                                                    
+                                                    <a title="Edit Resident" href="/resident/{{$resident->id}}/clearance/{{$clearance->id}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-print"></i></a>
+                                                    <a title="Edit Resident" href="/resident/{{$resident->id}}/clearance/{{$clearance->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
+                                                <form id="form{{$clearance->id}}" method="POST" action="/resident/{{$resident->id}}/clearance/{{$clearance->id}}" >
+                                                        @csrf
+                                                        @method('delete')
+                                                    <button title="Delete Clearance" type="submit" id="{{$clearance->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
+                                                </div>
+                                            </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @else
