@@ -122,12 +122,12 @@
                 </li>
             <li class="nav-item">
               <a class="nav-link @if($title=='Judicial') active @endif" href="/judicial" target="_top">
-                <i class="nav-icon icon-shield"></i> Judicial</a>
+                <i class="nav-icon icon-briefcase"></i>Manage Judicial</a>
             </li>
-            <li class="nav-item">
+           <!--  <li class="nav-item">
               <a class="nav-link @if($title=='Clearance') active @endif" href="/clearancelist" target="_top">
                 <i class="nav-icon icon-printer"></i> Clearance</a>
-            </li>
+            </li> -->
             
            
             <li class="nav-title">SETTINGS</li>

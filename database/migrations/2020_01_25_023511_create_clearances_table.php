@@ -20,6 +20,7 @@ class CreateClearancesTable extends Migration
             $table->date('date_valid');
             $table->string('ornum');
             $table->string('purpose');
+            $table->string('clearance_no');
             $table->timestamps();
 
             $table->foreign('resident_id')

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-<?php $title = 'Clearance'; ?>
+<?php $title = 'Resident'; ?>
 @section('title',$title)
 @section('content')
 @if($errors->any())
