@@ -2,6 +2,7 @@
 <?php $title = 'Resident'; ?>
 @section('title',$title)
 @section('content')
+
     <div class="card">
         <div class="card-header">
             <div class="float-left">
@@ -52,8 +53,17 @@
               <div class="tab-pane fade show active" id="clearance" role="tabpanel" aria-labelledby="clearance-tab">
                   <!--  -->
                               <div class="form-group mt-1">
-                                  <a href="/resident/{{$resident->id}}/clearance/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Issue Clearance</a>
+                                  <a href="/resident/{{$resident->id}}/clearance/create"><button  @if($countr >= 1) disabled @endif class="btn btn-success"><i class="fa fa-plus-circle"></i> Issue Clearance</button></a>
                               </div>
+
+                              @if($countr >= 1)
+
+                                <div class="form-group">
+                                    <div class="alert alert-danger" role="alert">
+                                      <i class="fa fa-warning"></i> This resident has an existing judicial case! Clearance Issuance has been disabled for this resident.
+                                    </div>
+                                </div>
+                              @endif
                               <div class="table-responsive mt-3">
                                         <table id="dtt1" class="table table-hover table-striped table-bordered">
                                             <thead>

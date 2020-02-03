@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Clearance;
+use App\Judicial;
 use App\Resident;
+use App\Clearance;
 use Illuminate\Http\Request;
+use App\Judicial_Complainant;
 
 class ClearanceController extends Controller
 {
@@ -15,7 +17,27 @@ class ClearanceController extends Controller
      */
     public function index(Resident $resident)
     {
-        return view('clearance.profile',compact('resident'));
+        $judicial_comp = Judicial_Complainant::where('resident_id','=',$resident->id)->get();
+
+        $countr = 0;
+        if($judicial_comp){
+            foreach($judicial_comp as $jc){
+                $judicials = Judicial::where('id','=',$jc->judicial_id)->get();
+
+                if(count($judicials)){
+                    foreach($judicials as $jds){
+
+                        if($jds->status == 'On-going'){
+                            $countr++;
+                        }
+                    }
+                }
+
+            }
+        }
+        
+
+        return view('clearance.profile',compact('resident','countr'));
     }
     public function list()
     {

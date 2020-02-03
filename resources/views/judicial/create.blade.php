@@ -9,7 +9,7 @@
    <form action="/judicial" method="POST" >
         @csrf
     <div class="card-header form-inline">
-        <p>Case Details | Case No.: <input type="text" name="caseno" class="form-control"  readonly value="BCN-{{rand(10,99)}}-{{rand(1111111111,9999999999)}}"> | KP Form No.: <input name="kpformno" type="text" class="form-control"  readonly value="PK07-{{rand(10,99)}}-{{rand(1111111111,9999999999)}}"></p>
+        <p>Case Details | Case No.: <input type="text" name="caseno" class="form-control"  readonly value="BCN-{{rand(10,99)}}-{{rand(1111111111,9999999999)}}"> | KP Form No.: <input name="kpformno" type="text" class="form-control"  readonly value="KP07-{{rand(10,99)}}-{{rand(1111111111,9999999999)}}"></p>
     </div>
     <div class="card-body">
      
