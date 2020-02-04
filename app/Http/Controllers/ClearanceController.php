@@ -19,25 +19,13 @@ class ClearanceController extends Controller
     {
         $judicial_comp = Judicial_Complainant::where('resident_id','=',$resident->id)->get();
 
-        $countr = 0;
         if($judicial_comp){
             foreach($judicial_comp as $jc){
-                $judicials = Judicial::where('id','=',$jc->judicial_id)->get();
-
-                if(count($judicials)){
-                    foreach($judicials as $jds){
-
-                        if($jds->status == 'On-going'){
-                            $countr++;
-                        }
-                    }
-                }
-
+                $judicials = Judicial::where('id','=',$jc->judicial_id)->where('status','=','On-going')->first();
             }
         }
         
-
-        return view('clearance.profile',compact('resident','countr'));
+        return view('clearance.profile',compact('resident','judicials'));
     }
     public function list()
     {
