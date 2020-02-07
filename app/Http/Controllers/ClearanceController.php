@@ -18,7 +18,7 @@ class ClearanceController extends Controller
     public function index(Resident $resident)
     {
         $judicial_comp = Judicial_Complainant::where('resident_id','=',$resident->id)->get();
-
+        $judicials = '';
         if($judicial_comp){
             foreach($judicial_comp as $jc){
                 $judicials = Judicial::where('id','=',$jc->judicial_id)->where('status','=','On-going')->first();
