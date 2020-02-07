@@ -37,84 +37,68 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="">
+        </div> 
+    </div>
 
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="clearance-tab" data-toggle="tab" href="#clearance" role="tab" aria-controls="clearance" aria-selected="true">Issued Clearance</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="permit-tab" data-toggle="tab" href="#permit" role="tab" aria-controls="permit" aria-selected="false">Issued Permit</a>
-              </li>
-             
-            </ul>
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="clearance" role="tabpanel" aria-labelledby="clearance-tab">
-                  <!--  -->
-                              <div class="form-group mt-1">
-                                  <a href="/resident/{{$resident->id}}/clearance/create"><button  @if($judicials) disabled @endif class="btn btn-success"><i class="fa fa-plus-circle"></i> Issue Clearance</button></a>
-                              </div>
-
-                              @if($judicials)
-
-                                <div class="form-group">
-                                    <div class="alert alert-danger" role="alert">
-                                      <i class="fa fa-warning"></i> This resident has an existing judicial case! Clearance Issuance has been disabled for this resident.<br> Case ID: {{$judicials->caseno}} . <u><a href="/judicial/{{$judicials->id}}">Visit</a></u>
-                                    </div>
-                                </div>
-                                
-                                   
-                               
-                              @endif
-                              <div class="table-responsive mt-3">
-                                        <table id="dtt1" class="table table-hover table-striped table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>Clearance ID No.</th>
-                                                    <th>Purpose</th>
-                                                    <th>Date Issued</th>
-                                                    <th>Valid Until</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                  @if(count($resident->clearances))
-                                                      @foreach($resident->clearances as $clearance)
-                                                          <tr>
-                                                              <td>{{$clearance->ornum}}</td>
-                                                              <td>{{$clearance->purpose}}</td>
-                                                              <td>{{$clearance->date_issued}}</td>
-                                                              <td>{{$clearance->date_valid}}</td>
-                                                              <td align="center" width="15%">        
-                                                                  <div class="form-inline">
-                                                                      
-                                                                      <a title="Edit Resident" href="/resident/{{$resident->id}}/clearance/{{$clearance->id}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-print"></i></a>
-                                                                      <a title="Edit Resident" href="/resident/{{$resident->id}}/clearance/{{$clearance->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
-                                                                  <form id="form{{$clearance->id}}" method="POST" action="/resident/{{$resident->id}}/clearance/{{$clearance->id}}" >
-                                                                          @csrf
-                                                                          @method('delete')
-                                                                      <button title="Delete Clearance" type="submit" id="{{$clearance->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
-                                                                  </div>
-                                                              </form>
-                                                              </td>
-                                                          </tr>
-                                                      @endforeach
-                                                  @else
-
-                                                  @endif
-                                            </tbody>
-                                        </table>
-                                    </div>
-                  <!--  -->
-              </div>
-              <div class="tab-pane fade" id="permit" role="tabpanel" aria-labelledby="permit-tab">
-                  <!--  -->
-
-                  <!--  -->
-              </div>
+    <div class="card">
+      <div class="card-header">Issued Permits</div>
+          <div class="card-body">
+            @if($judicials)
+              <div class="form-group">
+                  <div class="alert alert-danger" role="alert">
+                    <i class="fa fa-warning"></i> This resident has an existing judicial case! Clearance Issuance has been disabled for this resident.<br> Case ID: {{$judicials->caseno}} . <u><a href="/judicial/{{$judicials->id}}">Visit</a></u>
+                  </div>
+              </div>  
+            @endif
+            <div class="form-group mt-1">
+                <a href="/resident/{{$resident->id}}/clearance/create"><button  @if($judicials) disabled @endif class="btn btn-success"><i class="fa fa-plus-circle"></i> Issue Clearance</button></a>
             </div>
+
+            
+            <div class="table-responsive mt-3">
+                      <table id="dtt1" class="table table-hover table-striped table-bordered">
+                          <thead>
+                              <tr>
+                                  <th>Clearance ID No.</th>
+                                  <th>Purpose</th>
+                                  <th>Date Issued</th>
+                                  <th>Valid Until</th>
+                                  <th>Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                                @if(count($resident->clearances))
+                                    @foreach($resident->clearances as $clearance)
+                                        <tr>
+                                            <td>{{$clearance->ornum}}</td>
+                                            <td>{{$clearance->purpose}}</td>
+                                            <td>{{$clearance->date_issued}}</td>
+                                            <td>{{$clearance->date_valid}}</td>
+                                            <td align="center" width="15%">        
+                                                <div class="form-inline">
+                                                    
+                                                    <a title="Edit Resident" href="/resident/{{$resident->id}}/clearance/{{$clearance->id}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-print"></i></a>
+                                                    <a title="Edit Resident" href="/resident/{{$resident->id}}/clearance/{{$clearance->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
+                                                <form id="form{{$clearance->id}}" method="POST" action="/resident/{{$resident->id}}/clearance/{{$clearance->id}}" >
+                                                        @csrf
+                                                        @method('delete')
+                                                    <button title="Delete Clearance" type="submit" id="{{$clearance->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
+                                                </div>
+                                            </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+
+                                @endif
+                          </tbody>
+                      </table>
+                  </div>
+                
+                </div>
+              </div>
+          </div>
            
         </div>
-    </div>
+
 @endsection
