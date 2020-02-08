@@ -1,17 +1,19 @@
 @extends('layouts.master')
 <?php $title = 'Judicial'; ?>
+<?php $header = 'New Case'; ?>
 @section('title',$title)
+@section('header',$header)
 @section('content')
 @if($errors->any())
     {{ implode('', $errors->all('<div>:message</div>')) }}
 @endif
-<div class="card">
+<div class="box">
    <form action="/judicial" method="POST" >
         @csrf
-    <div class="card-header form-inline">
+    <div class="box-header form-inline">
         <p>Case Details | Case No.: <input type="text" name="caseno" class="form-control"  readonly value="BCN-{{rand(10,99)}}-{{rand(1111111111,9999999999)}}"> | KP Form No.: <input name="kpformno" type="text" class="form-control"  readonly value="KP07-{{rand(10,99)}}-{{rand(1111111111,9999999999)}}"></p>
     </div>
-    <div class="card-body">
+    <div class="box-body">
      
     	<div class="row">
            <div class="col-6">
@@ -61,12 +63,11 @@
            </div>
         </div>
     </div>
-    <div class="card-footer">
-        <div class="">
-            <a href="/judicial" class="btn btn-danger">Cancel</a>
-            <button type="submit" class="btn btn-success"><i class="fa fa-gavel"></i> Add Case</button>
-        </div>
-      </div>
+    
+    </div>
+    <div class="pull-right">
+        <a href="/judicial" class="btn btn-danger">Cancel</a>
+        <button type="submit" class="btn btn-success"><i class="fa fa-gavel"></i> Add Case</button>
     </div>
 </div>
 </form>
