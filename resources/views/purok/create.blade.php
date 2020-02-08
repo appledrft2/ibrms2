@@ -1,15 +1,17 @@
 @extends('layouts.master')
-<?php $title = 'Purok'; ?>
+<?php $title = 'Settings'; ?>
+<?php $header = 'New Purok'; ?>
 @section('title',$title)
+@section('header',$header)
 @section('content')
 
-            <div class="card">
-            	<div class="card-header">
+            <div class="box">
+            	<div class="box-header">
             		<h5>Purok Details: </h5>
             	</div>
             	<form action="/purok" method="POST">
             	@csrf
-                <div class="card-body">
+                <div class="box-body">
 
                 	<div class="row">
                 		<div class="col-md-6">
@@ -66,7 +68,7 @@
                 
               
                 </div>
-                <div class="form-group float-right">
+                <div class="form-group pull-right">
                     <a href="/purok" class="btn btn-danger">Cancel</a>
                     <button type="submit" class="btn btn-success">Add Record</button>
                 </div>

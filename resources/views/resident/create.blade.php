@@ -1,6 +1,8 @@
 @extends('layouts.master')
 <?php $title = 'Resident'; ?>
+<?php $header = 'New Residents'; ?>
 @section('title',$title)
+@section('header',$header)
 @section('styles')
 <link rel="stylesheet" type="text/css" href="{{asset('autocomplete/easy-autocomplete.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('autocomplete/easy-autocomplete.themes.min.css')}}">
@@ -10,14 +12,14 @@
 <form action="/resident" autocomplete="off" method="POST" enctype="multipart/form-data">
     @csrf
 <div class="col-md-12">
-    <div class="card">
-        <div class="card-header ">
-            <h5 class="card-title "><div class="form-inline">
+    <div class="box">
+        <div class="box-header ">
+            <h5 class="box-title "><div class="form-inline">
                 <i class="fa fa-user"></i> &nbsp;Personal Information | Resident ID No. <i class="fa fa-question-circle" title="Resident ID is automatically generated"></i>:&nbsp;
                             <input type="text" class="text-center form-control form-control-sm" name="residentid" placeholder="Household ID No." value="{{date('y').'-'.date('mdHis')}}" readonly>
             </div></h5>
         </div>
-        <div class="card-body">
+        <div class="box-body">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -240,13 +242,13 @@
     </div>
 
 
-    <div class="card collapsed-card">
-            <div class="card-header header-elements-inline ">
-                <h5 class="card-title">Residential Address </h5>
+    <div class="box ">
+            <div class="box-header">
+                <h5 class="box-title">Residential Address </h5>
                 
             </div>
 
-            <div class="card-body">
+            <div class="box-body">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -415,13 +417,13 @@
     </div>
 
 
-    <div class="card collapsed-card">
-            <div class="card-header header-elements-inline">
-                <h5 class="card-title">Additional Information</h5>
+    <div class="box">
+            <div class="box-header">
+                <h5 class="box-title">Additional Information</h5>
                 
             </div>
 
-            <div class="card-body">
+            <div class="box-body">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -650,18 +652,15 @@
             </div>
     </div>
 </div>
-
-<div class="col-md-12">
-    <div class="form-group">
-        <span class="float-right">
-            <a href="/resident" class="btn btn-danger"><i class="icon-stack-cancel"></i> Cancel</a>
-            <button type="submit" class="btn btn-success"><i class="icon-check"></i> Add Record</button>
-            
+        <span class="pull-right">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <a href="/resident" class="btn btn-danger"><i class="icon-stack-cancel"></i> Cancel</a>
+                    <button type="submit" class="btn btn-success"><i class="icon-check"></i> Add Record</button>
+                </div>
+            </div>
         </span>
-    </div>
-</div>
 </form>
-<div class="mt-3"></div>
 </div>
   
 @endsection

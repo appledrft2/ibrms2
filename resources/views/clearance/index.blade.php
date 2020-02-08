@@ -1,9 +1,11 @@
 @extends('layouts.master')
-<?php $title = 'Clearance'; ?>
+<?php $title = 'Resident'; ?>
+<?php $header = 'Resident Profile'; ?>
 @section('title',$title)
+@section('header',$header)
 @section('content')
-            <div class="card">
-                <div class="card-body">
+            <div class="box">
+                <div class="box-body">
                 	<div class="table-responsive">
                 		<table id="dtt1" class="table table-hover table-striped table-bordered">
                 			<thead>

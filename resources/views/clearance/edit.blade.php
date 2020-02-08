@@ -1,22 +1,24 @@
 @extends('layouts.master')
 <?php $title = 'Resident'; ?>
+<?php $header = 'Update Clearance'; ?>
 @section('title',$title)
+@section('header',$header)
 @section('content')
 @if($errors->any())
     {{ implode('', $errors->all('<div>:message</div>')) }}
 @endif
 
-<div class="card">
+<div class="box">
 <form action="/resident/{{$resident->id}}/clearance/{{$clearance->id}}" method="POST" >
         @csrf
         @method('PUT')
         <input type="hidden" name="resident_id" value="{{$resident->id}}">
-    <div class="card-header form-inline">
-        <p>Clearance Details | Resident Clearance ID No.: <input type="text" name="clearance_no" class="form-control"  readonly value="RBC-{{date('y').'-'.date('mdHis')}}">
+    <div class="box-header form-inline">
+        <p>Clearance Details | Resident Clearance ID No.: <input type="text" name="clearance_no" class="form-control"  readonly value="RBC-{{date('y').'-'.date('mdHis')}}"></p>
     </div>
-    <div class="card-body">
+    <div class="box-body">
     	<div class="row">
-    		<div class="col-6">
+    		<div class="col-md-6">
     			<div class="form-group">
     				<label>Resident Name <span class="req">*</span></label>
                     <input readonly type="text" class="form-control" name="resident_name" value="{{$resident->firstname}} {{$resident->middlename[0]}}. {{$resident->lastname}}">
@@ -35,7 +37,7 @@
                 <textarea class="form-control" name="address" cols="5" rows="5" name="address" readonly>{{$resident->address->street}} Street, Prk. {{$resident->address->purok->prk_name}} , {{$resident->address->city}} City</textarea>    
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
                 <div class="form-group">
     				<label>Purpose <span class="req">*</span></label>
                     <textarea class="form-control" name="purpose" cols="5" rows="5" name="purpose" placeholder="Enter Purpose" >{{$clearance->purpose}}</textarea>    
@@ -46,13 +48,13 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-group">
                         <label>Date Issued <span class="req">*</span></label>
                         <input  type="date" class="form-control" name="date_issued" readonly value="{{$clearance->date_issued}}" >
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                        
                         <div class="form-group">
                         <label>Valid Until <span class="req">*</span></label>
@@ -65,12 +67,11 @@
     	
     	
     </div>
-    <div class="card-footer">
-        <div class="">
-            <a href="/resident/{{$resident->id}}/clearance" class="btn btn-danger">Cancel</a>
-            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update Clearance</button>
-        </div>
-      </div>
+</div>
+    <div class="pull-right">
+        <a href="/resident/{{$resident->id}}/clearance" class="btn btn-danger">Cancel</a>
+        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update Clearance</button>
     </div>
 </div>
+</form>
 @endsection

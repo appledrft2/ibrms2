@@ -1,13 +1,16 @@
 @extends('layouts.master')
-<?php $title = 'Purok'; ?>
+<?php $title = 'Settings'; ?>
+<?php $header = 'Manage Purok'; ?>
 @section('title',$title)
+@section('header',$header)
 @section('content')
-<div class="form-group">
-    <a href="/purok/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> New Purok</a>
-</div>
-            <div class="card">
 
-                <div class="card-body">
+            <div class="box">
+
+                <div class="box-body">
+                    <div class="form-group">
+                        <a href="/purok/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> New Purok</a>
+                    </div>
                 	<div class="table-responsive">
                 		<table id="dtt1" class="table table-hover table-striped table-bordered">
                 			<thead>
@@ -33,10 +36,11 @@
                                             </td>
                                             <td align="center">        
                                                 <div class="form-inline">
-                                                    <a href="/purok/{{$purok->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
+                                                   
                                                     <form id="form{{$purok->id}}" method="POST" action="/purok/{{$purok->id}}" >
                                                         @csrf
                                                         @method('delete')
+                                                        <a href="/purok/{{$purok->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
                                                     <button type="submit" id="{{$purok->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
                                                 </div>
                                             </form>

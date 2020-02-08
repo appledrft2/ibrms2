@@ -1,20 +1,22 @@
 @extends('layouts.master')
 <?php $title = 'Judicial'; ?>
+<?php $header = 'Update Case'; ?>
 @section('title',$title)
+@section('header',$header)
 @section('content')
 @if($errors->any())
     {{ implode('', $errors->all('<div>:message</div>')) }}
 @endif
-<div class="card">
+<div class="box">
    <form action="/judicial/{{$judicial->id}}" method="POST">
     @csrf
     @method('PUT')
-    <div class="card-header form-inline">
+    <div class="box-header form-inline">
         <p>Case Details | Case No.: <input type="text" name="caseno" class="form-control"  readonly value="{{$judicial->caseno}}"> | KP Form No.: <input name="kpformno" type="text" class="form-control"  readonly value="{{$judicial->kpformno}}"></p>
     </div>
-    <div class="card-body">
+    <div class="box-body">
     	<div class="row">
-           <div class="col-6">
+           <div class="col-md-6">
                 <div class="form-group">
                        <label >Complainant <span class="req">*</span></label>
                        @if(count($complainants) > 0)
@@ -74,22 +76,22 @@
 
            </div>
 
-           <div class="col-6">
+           <div class="col-md-6">
                <label>Complainant Details <span class="req">*</span></label>
                <textarea class="form-control" required cols=5 rows=5 name="details" placeholder="Enter Details">{{$judicial->details}}</textarea>
            </div>
 
         </div>
     </div>
-
-      <div class="card-footer">
-        <div class="">
-            <a href="/judicial" class="btn btn-danger">Cancel</a>
-            <button type="submit" class="btn btn-primary"><i class="fa fa-gavel"></i> Update Case</button>
-        </div>
-      </div>
-    </form>
+   
 </div>
+<div class="pull-right">
+    <div class="form-group">
+      <a href="/judicial" class="btn btn-danger">Cancel</a>
+    <button type="submit" class="btn btn-primary"><i class="fa fa-gavel"></i> Update Case</button>
+    </div>
+</div>
+ </form>
 @endsection
 @section('script')
 

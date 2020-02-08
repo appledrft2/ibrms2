@@ -1,13 +1,15 @@
 @extends('layouts.master')
 <?php $title = 'Household'; ?>
+<?php $header = 'Manage Household'; ?>
 @section('title',$title)
+@section('header',$header)
 @section('content')
-<div class="form-group">
-    <a href="/household/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> New Household</a>
-</div>
-            <div class="card">
 
-                <div class="card-body">
+            <div class="box">                
+                <div class="box-body">
+                    <div class="form-group">
+                        <a href="/household/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> New Household</a>
+                    </div>
                 	<div class="table-responsive">
                 		<table id="dtt1" class="table table-hover table-striped table-bordered">
                 			<thead>
@@ -26,14 +28,13 @@
 	            					<td>{{$household->household_id}}</td>
 	            					<td>{{$household->family_serial}}</td>
 <!-- 	            					<td>{{$household->created_at->isoFormat('Y-M-D, h:mm:ss a')}}</td> -->
-	            					<td align="center">        
-                                    	<div class="form-inline">
-                                    		<a href="/household/{{$household->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
-                                    		<form id="form{{$household->id}}" method="POST" action="/household/{{$household->id}}" >
-                                    			@csrf
-                                    			@method('delete')
-                                			<button type="submit" id="{{$household->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
-                                    	</div>
+	            					<td >        
+                                		
+                                		<form id="form{{$household->id}}" method="POST" action="/household/{{$household->id}}" >
+                                			@csrf
+                                			@method('delete')
+                                        <a href="/household/{{$household->id}}/edit" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                            			<button type="submit" id="{{$household->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
                                     </form>
 	                                </td>
                 				</tr>

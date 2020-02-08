@@ -69,6 +69,7 @@
       </div>
     </div>
 </div>
+</form>
 @endsection
 @section('script')
 

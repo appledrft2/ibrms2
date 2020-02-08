@@ -1,16 +1,18 @@
 @extends('layouts.master')
-<?php $title = 'Barangay'; ?>
+<?php $title = 'Settings'; ?>
+<?php $header = 'Barangay Profile'; ?>
 @section('title',$title)
+@section('header',$header)
 @section('content')
-  <div class="card">
-  	<div class="card-header">
+  <div class="box">
+  	<div class="box-header">
   		@if($barangays == null)
   		<form method="POST" action="/barangay" enctype="multipart/form-data">
   			@csrf
   		<button class="btn btn-success">Save Profile</button>
   		</div>
 
-  		<div class="card-body">
+  		<div class="box-body">
   			<div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -104,13 +106,13 @@
   				</div>
   				<div class="col-md-6">
   					<div class="row">
-  						<div class="col-12">
+  						<div class="col-md-12">
   							<div class="form-group">
   								<label>Barangay Kagawad 6 <span class="req">*</span></label>
   								<input required type="text" class="form-control" name="kg6" placeholder="Enter Name">
   							</div>
   						</div>
-  						<div class="col-12">
+  						<div class="col-md-12">
   							<div class="form-group">
   								<label>Barangay Kagawad 7 <span class="req">*</span></label>
   								<input required type="text" class="form-control" name="kg7" placeholder="Enter Name">
@@ -129,7 +131,7 @@
   		<button class="btn btn-success">Update Profile</button>
   		</div>
 
-  		<div class="card-body">
+  		<div class="box-body">
   			<div class="row">
           @if($barangays->logo)
              <div class="col-md-12">
@@ -231,13 +233,13 @@
   				</div>
   				<div class="col-md-6">
   					<div class="row">
-  						<div class="col-12">
+  						<div class="col-md-12">
   							<div class="form-group">
   								<label>Barangay Kagawad 6 <span class="req">*</span></label>
   								<input required value="{{$barangays->kg6}}" type="text" class="form-control" name="kg6" placeholder="Enter Name">
   							</div>
   						</div>
-  						<div class="col-12">
+  						<div class="col-md-12">
   							<div class="form-group">
   								<label>Barangay Kagawad 7 <span class="req">*</span></label>
   								<input required type="text" value="{{$barangays->kg7}}" class="form-control" name="kg7" placeholder="Enter Name">

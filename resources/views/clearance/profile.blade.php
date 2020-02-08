@@ -1,18 +1,20 @@
 @extends('layouts.master')
 <?php $title = 'Resident'; ?>
+<?php $header = 'Resident Profile'; ?>
 @section('title',$title)
+@section('header',$header)
 @section('content')
 
-    <div class="card">
-        <div class="card-header">
-            <div class="float-left">
+    <div class="box">
+        <div class="box-header">
+            <div class="pull-left">
                 Resident Profile | ID Number: {{$resident->residentid}}
             </div>
-            <div class="float-right">
-                <a href="/resident" class="btn btn-secondary">Go Back </a> 
+            <div class="pull-right">
+                <a href="/resident" class="btn btn-default">Go Back </a> 
             </div>
         </div>
-        <div class="card-body mb-3">
+        <div class="box-body mb-3">
             <div class="row">
                 <div class="col-md-3">
                     <center>
@@ -40,9 +42,8 @@
         </div> 
     </div>
 
-    <div class="card">
-      <div class="card-header">Issued Permits</div>
-          <div class="card-body">
+    <div class="box">
+          <div class="box-body">
             @if($judicials)
               <div class="form-group">
                   <div class="alert alert-danger" role="alert">
@@ -74,17 +75,14 @@
                                             <td>{{$clearance->purpose}}</td>
                                             <td>{{$clearance->date_issued}}</td>
                                             <td>{{$clearance->date_valid}}</td>
-                                            <td align="center" width="15%">        
-                                                <div class="form-inline">
-                                                    
-                                                    <a title="Edit Resident" href="/resident/{{$resident->id}}/clearance/{{$clearance->id}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-print"></i></a>
-                                                    <a title="Edit Resident" href="/resident/{{$resident->id}}/clearance/{{$clearance->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
+                                            <td>        
                                                 <form id="form{{$clearance->id}}" method="POST" action="/resident/{{$resident->id}}/clearance/{{$clearance->id}}" >
                                                         @csrf
                                                         @method('delete')
+                                                    <a title="Edit Resident" href="/resident/{{$resident->id}}/clearance/{{$clearance->id}}" class="btn btn-success btn-sm mr-1"><i class="fa fa-print"></i></a>
+                                                    <a title="Edit Resident" href="/resident/{{$resident->id}}/clearance/{{$clearance->id}}/edit" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></a>
                                                     <button title="Delete Clearance" type="submit" id="{{$clearance->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
-                                                </div>
-                                            </form>
+                                              </form>
                                             </td>
                                         </tr>
                                     @endforeach

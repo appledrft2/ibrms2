@@ -1,90 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <base href="./">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="IBRMS - Integrated Barangay Records Management System">
-    <meta name="author" content="anonymous">
-    <meta name="keyword" content="IBRMS">
-    <title>IBRMS - Integrated Barangay Records Management System</title>
-    <!-- Icons-->
-    <link rel="icon" href="coreui/img/ibrmslogo.png" type="image/x-icon" />
-    <link href="coreui/node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
-    <link href="coreui/node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
-    <link href="coreui/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="coreui/node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-    <!-- Main styles for this application-->
-    <link href="coreui/css/style.css" rel="stylesheet">
-    <link href="coreui/vendors/pace-progress/css/pace.min.css" rel="stylesheet">
-  </head>
-  <body class="app flex-row align-items-center">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <div class="card-group">
-            <div class="card p-4">
-              <div class="card-body">
-                <h1>Login</h1>
-                <p class="text-muted">Sign In to your account</p>
-                <form method="POST" action="{{ route('login') }}">
-                @csrf
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="icon-user"></i>
-                    </span>
-                  </div>
-                  <input required class="form-control" type="email" name="email" placeholder="Email">
-                  
-                </div>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Log in</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="{{asset('AdminLTE-2.4.18/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset('AdminLTE-2.4.18/bower_components/font-awesome/css/font-awesome.min.css')}}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{{asset('AdminLTE-2.4.18/bower_components/Ionicons/css/ionicons.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('AdminLTE-2.4.18/dist/css/AdminLTE.min.css')}}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{{asset('AdminLTE-2.4.18/plugins/iCheck/square/blue.css')}}">
 
-                <div class="input-group mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="icon-lock"></i>
-                    </span>
-                  </div>
-                  <input required class="form-control" type="password" name="password" placeholder="Password">
-                </div>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
-                <div class="row">
-                  <div class="col-6">
-                    <button class="btn btn-primary px-4" type="submit">Login</button>
-                  </div>
-                </form>
-                  <div class="col-6 text-right">
-                    <button class="btn btn-link px-0" type="button">Forgot password?</button>
-                  </div>
-                </div>
-            
-              </div>
-              @error('email')
-                  <span class="alert alert-danger" role="alert">
-                      <strong>{{ $message }}</strong>
-                  </span>
-              @enderror
-            </div>
-            <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
-              <div class="card-body text-center">
-                <div>
-                  <h2>IBRMS</h2>
-                  <h4>Integrated Barangay Records Management System</h4>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="#"><b>IBRMS</b>Admin</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Sign in to start your session</p>
+
+    <form method="POST" action="{{ route('login') }}">
+      @csrf
+      <div class="form-group has-feedback">
+        <input type="email" name="email" class="form-control" placeholder="Email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
-    </div>
-    <!-- CoreUI and necessary plugins-->
-    <script src="coreui/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="coreui/node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="coreui/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="coreui/node_modules/pace-progress/pace.min.js"></script>
-    <script src="coreui/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-    <script src="coreui/node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
-  </body>
+      <div class="form-group has-feedback">
+        <input type="password" name="password" class="form-control" placeholder="Password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+      
+        <!-- /.col -->
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+    <!-- 
+    <a href="/register" class="btn btn-default btn-block">Sign Up</a> -->
+
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery 3 -->
+<script src="{{asset('AdminLTE-2.4.18/bower_components/jquery/dist/jquery.min.js')}}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{{asset('AdminLTE-2.4.18/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- iCheck -->
+<script src="{{asset('AdminLTE-2.4.18/plugins/iCheck/icheck.min.js')}}"></script>
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' /* optional */
+    });
+  });
+</script>
+</body>
 </html>
+
+

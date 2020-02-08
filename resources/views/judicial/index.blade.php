@@ -1,14 +1,14 @@
 @extends('layouts.master')
 <?php $title = 'Judicial'; ?>
+<?php $header = 'Manage Cases'; ?>
 @section('title',$title)
+@section('header',$header)
 @section('content')
-<div class="form-group">
-    <a href="/judicial/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add New Case</a>
-</div>
-            <div class="card">
-                
-
-                <div class="card-body">
+            <div class="box">
+                <div class="box-body">
+                    <div class="form-group">
+                        <a href="/judicial/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add New Case</a>
+                    </div>
                 	<div class="table-responsive">
                 		<table id="dtt1" class="table table-hover table-bordered">
                 			<thead >
@@ -37,11 +37,12 @@
                                         </td>
                                         <td class="text-center" width="15%">
                                             <div class="form-inline">
-                                                <a href="/judicial/{{$judicial->id}}" class="btn mr-1 btn-sm btn-success"><i class="fa fa-eye"></i></a>
-                                                <a href="/judicial/{{$judicial->id}}/edit" class="btn mr-1  btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                                                
                                                 <form id="form{{$judicial->id}}" method="POST" action="/judicial/{{$judicial->id}}" >
                                                             @csrf
                                                             @method('delete')
+                                                        <a href="/judicial/{{$judicial->id}}" class="btn mr-1 btn-sm btn-success"><i class="fa fa-eye"></i></a>
+                                                        <a href="/judicial/{{$judicial->id}}/edit" class="btn mr-1  btn-sm btn-primary"><i class="fa fa-edit"></i></a>
                                                         <button title="Delete Case" type="submit" id="{{$judicial->id}}" class="btn btn-danger btn-sm btn_delete"><i class="fa fa-trash"></i></button>
                                                   
                                                 </form>
