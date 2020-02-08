@@ -16,7 +16,7 @@
     <div class="box-body">
      
     	<div class="row">
-           <div class="col-6">
+           <div class="col-md-6">
                 <div class="form-group">
                        <label>Complainant <span class="req">*</span></label>
                        <select class="form-control select2" name="complainants[]" required >
@@ -57,7 +57,7 @@
                    </div>
 
            </div>
-           <div class="col-6">
+           <div class="col-md-6">
                <label>Complainant Details <span class="req">*</span></label>
                <textarea class="form-control" required cols=5 rows=5 name="details" placeholder="Enter Case Details"></textarea>
            </div>
