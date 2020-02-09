@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Judicial;
 use App\Resident;
 use App\Clearance;
+use App\Judicial_Respondent;
 use Illuminate\Http\Request;
 use App\Judicial_Complainant;
 
@@ -17,7 +18,7 @@ class ClearanceController extends MainController
      */
     public function index(Resident $resident)
     {
-        $judicial_comp = Judicial_Complainant::where('resident_id','=',$resident->id)->get();
+        $judicial_comp = Judicial_Respondent::where('resident_id','=',$resident->id)->get();
         $judicials = '';
         if($judicial_comp){
             foreach($judicial_comp as $jc){
@@ -40,7 +41,7 @@ class ClearanceController extends MainController
      */
     public function create(Resident $resident)
     {
-        $judicial_comp = Judicial_Complainant::where('resident_id','=',$resident->id)->get();
+        $judicial_comp = Judicial_Respondent::where('resident_id','=',$resident->id)->get();
         $judicials = '';
         if($judicial_comp){
             foreach($judicial_comp as $jc){
