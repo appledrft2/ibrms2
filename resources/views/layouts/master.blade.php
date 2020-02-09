@@ -115,7 +115,7 @@
       @if($brgy)
         <div class="user-panel">
           <div class="pull-left image">
-            <img src="{{asset('/storage/uploads/HEFoo40utgBmjRdI4lwufK5wuuEmYczJrsmSMsM7.png')}}" class="img-circle" alt="User Image">
+            <img src="{{asset('AdminLTE-2.4.18/dist/img/sample-logo.png')}}" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
             <p>Brgy. {{$brgy->name}}</p>
