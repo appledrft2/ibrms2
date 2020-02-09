@@ -39,8 +39,19 @@ class ClearanceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Resident $resident)
-    {   
-        return view('clearance.create',compact('resident'));
+    {
+        $judicial_comp = Judicial_Complainant::where('resident_id','=',$resident->id)->get();
+        $judicials = '';
+        if($judicial_comp){
+            foreach($judicial_comp as $jc){
+                $judicials = Judicial::where('id','=',$jc->judicial_id)->where('status','=','On-going')->first();
+            }
+        }
+        if($judicials){
+            return redirect('/resident/'.$resident->id.'/clearance');
+        }else{
+            return view('clearance.create',compact('resident'));
+        }
     }
 
     /**
@@ -76,7 +87,7 @@ class ClearanceController extends Controller
      */
     public function show(Resident $resident,Clearance $clearance)
     {
-        return 'print resident_id:'.$resident->id.' - clearance_id:'.$clearance->id;
+        return view('clearance.show',compact('resident','clearance'));
     }
 
     /**

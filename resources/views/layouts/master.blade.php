@@ -130,8 +130,9 @@
         <li class="@if($title=='Dashboard') active @endif navs-items">
             <a class="@if($title!='Dashboard') notactive @endif" href="/dashboard"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
         </li>
-        <li class="navs-items @if($title=='Household') active @endif"><a class="@if($title!='Household') notactive @endif" href="/household"><i class="fa fa-home"></i> <span> Manage Household</span></a></li>
+        
         <li class="navs-items @if($title=='Resident') active @endif"><a class="@if($title!='Resident') notactive @endif" href="/resident"><i class="fa fa-users"></i> <span> Manage Resident</span></a></li>
+        <li class="navs-items @if($title=='Household') active @endif"><a class="@if($title!='Household') notactive @endif" href="/household"><i class="fa fa-home"></i> <span> Manage Household</span></a></li>
         <li class="@if($title=='Judicial') active @endif navs-items"><a class="@if($title!='Judicial') notactive @endif" href="/judicial"><i class="fa fa-gavel"></i> <span> Judicial Cases</span></a></li>
         <li class="treeview @if($title=='Settings') active @else  @endif navs-items ">
           <a class="@if($title!='Settings') notactive @endif" href="#" ><i class="fa fa-gears"></i> <span>Settings</span>
