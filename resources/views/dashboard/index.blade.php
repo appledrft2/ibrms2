@@ -49,16 +49,55 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4">
 
-      <div class="box">
+    <div class="col-md-4">
+       <div class="box">
+        
         <div class="box-body">
-          <a href="/resident/create" class="btn btn-primary btn-block"> Add New Resident</a>
-          <a href="/resident/create" class="btn btn-success btn-block"> Issue Resident Clearance</a>
-          <a href="/resident/create" class="btn btn-danger btn-block"> Issue Business Clearance</a>
-          <button data-toggle="modal" data-target="#exampleModal" class="btn btn-warning text-white btn-block"> New Event</button>
+          <h4>Barangay Officals</h4>
+          <div class="form-group">
+            <label>Barangay Captain:</label>
+            <p>Mr/Mrs. {{$brgy->captain}}</p>
+          </div>
+          <div class="form-group">
+            <label>Barangay Secretary:</label>
+            <p>Mr/Mrs. {{$brgy->secretary}}</p>
+          </div>
+          <div class="form-group">
+            <label>Barangay Treasurer:</label>
+            <p>Mr/Mrs. {{$brgy->treasurer}}</p>
+          </div>
         </div>
       </div>
+      <div class="box">
+       
+        <div class="box-body">
+          <h4>Purok/Areas</h4>
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dtt3">
+              <thead>
+                <tr>
+                  <th>Area name</th>
+                  <th>Population</th>
+                </tr>
+              </thead>
+              <tbody>
+                @if($puroks)
+                  @foreach($puroks as $prk)
+                    <tr>
+                      <td>Prk. {{$prk->prk_name}}</td>
+                      <td>{{$prk->resi_address->count()}}</td>
+                    </tr>
+                  @endforeach
+                @endif
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+      </div>
+
+     
 
       <div class="box">
         <div class="box-header">
@@ -79,9 +118,6 @@
 
     <div class="col-md-8">
       <div class="box">
-        <div class="box-header">
-          Upcoming Events
-        </div>
         <div class="box-body">
           <div class="row">
             <div class="col-md-12 mb-1">
@@ -91,15 +127,17 @@
             </div>
             <div class="col-md-12">
               <div class="box">
-                <div class="box-header">List of events</div>
                 <div class="box-body">
+                  <div class="form-group">
+                    <button data-toggle="modal" data-target="#exampleModal" class="btn btn-warning text-white "> New Event</button>
+                  </div>
                   <div class="table-responsive">
                     <table class="table table-bordered table-hover table-striped" id="dtt1">
                       <thead>
                         <tr>
                           <th>Event Name</th>
                           <th>Date</th>
-                          <th>Actions</th>
+                          <th width="15%">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -188,7 +226,7 @@
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
-      plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
+      plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
       height: 'parent',
       header: {
         left: 'prev,next today',
@@ -196,7 +234,7 @@
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
       },
       defaultView: 'dayGridMonth',
-      navLinks: true, // can click day/week names to navigate views
+      navLinks: false, // can click day/week names to navigate views
       editable: false,
       eventLimit: true,
       events: [

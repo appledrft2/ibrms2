@@ -260,6 +260,12 @@
   $(document).ready( function () {
       $('#dtt1').DataTable();
       $('#dtt2').DataTable();
+      $('#dtt3').DataTable({
+        "searching": false,
+        "ordering": false,
+        "paging":false,
+        "bInfo" : false
+      });
   } );
   // btn for deleting data
    $(document).on('click', '.btn_delete', function(e){
