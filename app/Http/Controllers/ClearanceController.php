@@ -8,7 +8,7 @@ use App\Clearance;
 use Illuminate\Http\Request;
 use App\Judicial_Complainant;
 
-class ClearanceController extends Controller
+class ClearanceController extends MainController
 {
     /**
      * Display a listing of the resource.
