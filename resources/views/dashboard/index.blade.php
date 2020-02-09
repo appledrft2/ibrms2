@@ -4,7 +4,6 @@
 @section('title',$title)
 @section('header',$header)
 @section('content')
-  
   <div class="row">
 
     <div class="col-md-3 col-sm-6 col-xs-12">
@@ -22,7 +21,7 @@
         <span class="info-box-icon bg-yellow"><i class="fa fa-gavel"></i></span>
         <div class="info-box-content">
           <span class="info-box-text">Unresolved Cases</span>
-          <span class="info-box-number">{{$resident}}</span>
+          <span class="info-box-number">{{$unresolved}}</span>
         </div>
       </div>
     </div>
