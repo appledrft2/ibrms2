@@ -10,7 +10,7 @@ use App\Judicial_Respondent;
 use Illuminate\Http\Request;
 use App\Judicial_Complainant;
 
-class JudicialController extends Controller
+class JudicialController extends MainController
 {
     /**
      * Display a listing of the resource.

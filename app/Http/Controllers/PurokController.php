@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Purok;
 use Illuminate\Http\Request;
 
-class PurokController extends Controller
+class PurokController extends MainController
 {
     /**
      * Display a listing of the resource.

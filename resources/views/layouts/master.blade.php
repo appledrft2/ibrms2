@@ -112,17 +112,33 @@
     <section class="sidebar" >
 
       <!-- Sidebar user panel (optional) -->
-<!--       <div class="user-panel">
-        <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+      @if($brgy)
+        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="{{asset('/storage/uploads/HEFoo40utgBmjRdI4lwufK5wuuEmYczJrsmSMsM7.png')}}" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p>Brgy. {{$brgy->name}}</p>
+            <p>{{$brgy->city}} City</p>
+            
+            
+          </div>
         </div>
-        <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div> -->
 
+      @else
+        <div class="user-panel">
+          <div class="pull-left image">
+            <img src="{{asset('AdminLTE-2.4.18/dist/img/sample-logo.png')}}" class="img-circle" alt="User Image">
+          </div>
+          <div class="pull-left info">
+            <p>Barangay</p>
+            <p>City</p>
+            
+            
+          </div>
+        </div>
+
+      @endif
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class=" navs-items"></li>

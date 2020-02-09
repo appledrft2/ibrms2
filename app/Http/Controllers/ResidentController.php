@@ -11,7 +11,7 @@ use App\Resident_Additional;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
-class ResidentController extends Controller
+class ResidentController extends MainController
 {
     /**
      * Display a listing of the resource.

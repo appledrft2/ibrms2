@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Household;
 use Illuminate\Http\Request;
 
-class HouseholdController extends Controller
+class HouseholdController extends MainController
 {
     /**
      * Display a listing of the resource.
