@@ -20,13 +20,25 @@ class ClearanceController extends MainController
     {
         $judicial_comp = Judicial_Respondent::where('resident_id','=',$resident->id)->get();
         $judicials = '';
+        $case = '';
         if($judicial_comp){
             foreach($judicial_comp as $jc){
                 $judicials = Judicial::where('id','=',$jc->judicial_id)->where('status','=','On-going')->first();
+
+                if($judicials)
+                {
+                    if($judicials->status == 'On-going'){
+                            $case = $judicials;
+                    }
+                }
             }
         }
+
+       
+       
         
-        return view('clearance.profile',compact('resident','judicials'));
+        
+        return view('clearance.profile',compact('resident','judicials','case'));
     }
     public function list()
     {

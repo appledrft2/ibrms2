@@ -30,9 +30,9 @@
                                         <td>{{date('M d, D Y', strtotime($judicial->created_at))}}</td>
                                         <td>
                                             @if($judicial->status == 'Resolved')
-                                            <span class="badge badge-success">Resolved</span>
+                                            <span class="badge alert-success">Resolved</span>
                                             @else
-                                            <span class="badge badge-warning">On-going</span>
+                                            <span class="badge alert-secondary">On-going</span>
                                             @endif
                                         </td>
                                         <td class="text-center" width="15%">

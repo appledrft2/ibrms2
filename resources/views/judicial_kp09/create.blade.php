@@ -12,7 +12,7 @@
         @csrf
         <input type="hidden" name="judicial_id" value="{{$judicial->id}}">
     <div class="box-header form-inline">
-        <p>Case Details | Case No.: <input type="text" name="caseno" class="form-control"  readonly value="{{$judicial->caseno}}"> | KP Form No.: <input name="kpformno" type="text" class="form-control"  readonly value="KP09-{{rand(10,99)}}-{{rand(1111111111,9999999999)}}"></p>
+        <p>Case Details | Case No.: <input type="text" name="caseno" class="form-control"  readonly value="{{$judicial->caseno}}"> | KP Form No.: <input name="kpformno" type="text" class="form-control"  readonly value="KP09-{{date('y').'-'.date('mdHis')}}"></p>
     </div>
     <div class="box-body">
     	<div class="row">

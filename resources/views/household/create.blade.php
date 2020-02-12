@@ -17,7 +17,7 @@
                 		<div class="col-md-6">
                 			<div class="form-group">
                 				<label>Household ID:</label>
-                				<input type="text" readonly name="household_id" value="{{'HH-'.rand(10,99).'-'.rand(1111111111,9999999999)}}" class="form-control">
+                				<input type="text" readonly name="household_id" value="HH-{{date('y').'-'.date('mdHis')}}" class="form-control">
                 			</div>
                 		</div>
                 		<div class="col-md-6">

@@ -6,7 +6,7 @@ use App\Judicial;
 use App\Judicial_Kp08;
 use Illuminate\Http\Request;
 
-class JudicialKp08Controller extends Controller
+class JudicialKp08Controller extends MainController
 {
     /**
      * Display a listing of the resource.

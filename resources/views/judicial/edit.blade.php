@@ -63,7 +63,7 @@
                        @endif
                    </div>
 
-                   <input type="hidden" name="status" value="On-going">
+                   
 
                    <div id="moreRespondents">
                     
@@ -79,6 +79,18 @@
            <div class="col-md-6">
                <label>Complainant Details <span class="req">*</span></label>
                <textarea class="form-control" required cols=5 rows=5 name="details" placeholder="Enter Details">{{$judicial->details}}</textarea>
+
+               <div class="form-group">
+                 <label>Status</label>
+                
+                   <select name="status" class='select2 form-control'>
+                     <option>Select Status</option>
+                     <option @if($judicial->status == 'On-going') selected @endif>On-going</option>
+                     <option @if($judicial->status == 'Resolved') selected @endif>Resolved</option>
+                   </select>
+                
+               </div>
+
            </div>
 
         </div>

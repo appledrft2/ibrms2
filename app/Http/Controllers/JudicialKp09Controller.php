@@ -6,7 +6,7 @@ use App\Judicial;
 use App\Judicial_Kp09;
 use Illuminate\Http\Request;
 
-class JudicialKp09Controller extends Controller
+class JudicialKp09Controller extends MainController
 {
      public function index($judicial_id)
     {
