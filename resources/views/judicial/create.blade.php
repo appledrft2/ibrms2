@@ -11,7 +11,7 @@
    <form action="/judicial" method="POST" >
         @csrf
     <div class="box-header form-inline">
-        <p>Case Details | Case No.: <input type="text" name="caseno" class="form-control"  readonly value="BCN-{{rand(10,99)}}-{{rand(1111111111,9999999999)}}"> | KP Form No.: <input name="kpformno" type="text" class="form-control"  readonly value="KP07-{{rand(10,99)}}-{{rand(1111111111,9999999999)}}"></p>
+        <p>Case Details | Case No.: <input type="text" name="caseno" class="form-control"  readonly value="BCN-{{date('y').'-'.date('mdHis')}}"> | KP Form No.: <input name="kpformno" type="text" class="form-control"  readonly value="KP07-{{date('y').'-'.date('mdHis')}}"></p>
     </div>
     <div class="box-body">
      
