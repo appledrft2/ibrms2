@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Judicial;
 use App\Resident;
 use App\Judicial_Kp08;
