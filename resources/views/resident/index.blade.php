@@ -10,7 +10,7 @@
                 <a href="/resident/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> New Resident</a>
             </div>
         	<div class="table-responsive">
-        		<table id="tablebtn" class="table table-hover table-bordered">
+        		<table id="dtt1" class="table table-hover table-bordered">
         			<thead >
         				<tr>
         					<th>Resident ID No.</th>
