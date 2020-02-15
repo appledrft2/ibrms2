@@ -91,7 +91,7 @@ class ResidentController extends MainController
         $address->ownership = $request->ownership;
         $address->houseno = $request->houseno;
         $address->street = $request->street;
-        $address->purok_id = $request->purok;
+        $address->purok_id = $request->purok_id;
         $address->barangay = $request->barangay;
         $address->city = $request->city;
         $address->province = $request->province;

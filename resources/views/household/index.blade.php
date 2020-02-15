@@ -11,7 +11,7 @@
                         <a href="/household/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> New Household</a>
                     </div>
                 	<div class="table-responsive">
-                		<table id="dtt1" class="table table-hover table-striped table-bordered">
+                		<table id="tablebtn" class="table table-hover table-striped table-bordered">
                 			<thead>
                 				<tr>
                 					<th>Household ID No.</th>
@@ -48,4 +48,49 @@
                 	</div>
                 </div>
             </div>
+@endsection
+
+@section('script')
+
+<script type="text/javascript">
+  // DataTable initialisation
+  $('#tablebtn').DataTable({
+      "dom": 'Bfrtilp',
+      buttons: [
+          {
+            extend: 'copy',
+            exportOptions: {
+              columns: [ 0,1]
+            }
+          },
+          {
+            extend: 'excel',
+            exportOptions: {
+              columns: [ 0,1]
+            }
+          },
+          {
+            extend: 'csv',
+            exportOptions: {
+              columns: [ 0,1]
+            }
+          },
+          {
+            extend: 'pdf',
+            exportOptions: {
+              columns: [ 0,1]
+            }
+          },
+          {
+            extend: 'print',
+            exportOptions: {
+              columns: [ 0,1]
+            }
+          }
+
+      ]
+
+
+  });
+</script>
 @endsection

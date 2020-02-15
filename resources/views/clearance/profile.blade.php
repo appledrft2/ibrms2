@@ -18,7 +18,11 @@
             <div class="row">
                 <div class="col-md-3">
                     <center>
+                        @if($resident->gender == "Male")
                         <img src="http://localhost/coreui/img/avatars/male.png" alt="" width="100">
+                        @else
+                        <img src="http://localhost/coreui/img/avatars/female.png" alt="" width="100">
+                        @endif
                     </center>
                 </div>
                 <div class="col-md-6">

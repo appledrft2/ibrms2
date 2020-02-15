@@ -323,7 +323,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <strong>Purok <span class="req">*</span></strong>
-                                            <select name="purok" required class="form-control select2bs4">
+                                            <select name="purok_id" required class="form-control select2bs4">
                                             @if(count($puroks))
                                                 <option selected disabled>Select</option>
                                                 @foreach($puroks as $purok)

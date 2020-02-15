@@ -207,6 +207,8 @@
 <script src="{{asset('AdminLTE-2.4.18/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 <!-- FastClick -->
 <script src="{{asset('AdminLTE-2.4.18/bower_components/fastclick/lib/fastclick.js')}}"></script>
+
+
 <script type="text/javascript">
   // To make Pace works on Ajax calls
   $(document).ajaxStart(function () {
@@ -308,4 +310,12 @@
    });
 </script>
 
+<link rel="stylesheet" type="text/css" href="{{asset('/dttbtn/buttons.dataTables.min.css')}}">
+<script type="text/javascript" src="{{asset('/dttbtn/dataTables.buttons.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('/dttbtn/buttons.flash.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('/dttbtn/jszip.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('/dttbtn/pdfmake.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('/dttbtn/vfs_fonts.js')}}"></script>
+<script type="text/javascript" src="{{asset('/dttbtn/buttons.html5.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('/dttbtn/buttons.print.min.js')}}"></script>
 @yield('script')

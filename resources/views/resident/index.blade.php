@@ -10,13 +10,13 @@
                 <a href="/resident/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> New Resident</a>
             </div>
         	<div class="table-responsive">
-        		<table id="dtt1" class="table table-hover table-bordered">
+        		<table id="tablebtn" class="table table-hover table-bordered">
         			<thead >
         				<tr>
         					<th>Resident ID No.</th>
         					<th>Fullname</th>
         					<th>Gender</th>
-                            <th>DOB</th>
+                            <th>Area/Purok</th>
         					<th>Action</th>
         				</tr>
         			</thead>
@@ -27,7 +27,8 @@
         							<td width="15%">{{$resident->residentid}}</td>
         							<td>{{$resident->firstname}} {{$resident->middlename[0]}}. {{ $resident->lastname}}</td>
         							<td>{{$resident->gender}}</td>                	
-                                    <td>{{date('M d, Y', strtotime($resident->dob))}}</td>
+                                    <td>{{$resident->address->purok->prk_name}}</td>                  
+                            <!--         <td>{{date('M d, Y', strtotime($resident->dob))}}</td> -->
         							<td>        
                                     		<form id="form{{$resident->id}}" method="POST" action="/resident/{{$resident->id}}" >
                                     			@csrf
@@ -47,4 +48,48 @@
         	</div>
         </div>
     </div>
+@endsection
+@section('script')
+
+<script type="text/javascript">
+  // DataTable initialisation
+  $('#tablebtn').DataTable({
+      "dom": 'Bfrtilp',
+      buttons: [
+          {
+            extend: 'copy',
+            exportOptions: {
+              columns: [ 0,1,2,3]
+            }
+          },
+          {
+            extend: 'excel',
+            exportOptions: {
+              columns: [ 0,1,2,3]
+            }
+          },
+          {
+            extend: 'csv',
+            exportOptions: {
+              columns: [ 0,1,2,3]
+            }
+          },
+          {
+            extend: 'pdf',
+            exportOptions: {
+              columns: [ 0,1,2,3]
+            }
+          },
+          {
+            extend: 'print',
+            exportOptions: {
+              columns: [ 0,1,2,3]
+            }
+          }
+
+      ]
+
+
+  });
+</script>
 @endsection
