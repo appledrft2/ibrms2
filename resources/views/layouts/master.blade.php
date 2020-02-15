@@ -89,7 +89,7 @@
             <ul class="dropdown-menu" style="width: 30px">
               <!-- Menu Footer-->
               <li class="user-footer">
-                  <a href="#" class="btn btn-default btn-block btn-flat">Profile</a>
+                  <a href="/dashboard/profile" class="btn btn-default btn-block btn-flat">Profile</a>
                   <form id="logout-form" style="margin:0px" action="{{ route('logout') }}" method="POST" >
                   @csrf
                   <button class="btn btn-default btn-block btn-flat" style="margin-top: 5px;">Sign out</button> 

@@ -45,6 +45,10 @@ Route::resource('/judicial/{judicial}/kp09', 'JudicialKp09Controller');
 Route::get('/clearancelist', 'ClearanceController@list');
 Route::resource('/resident/{resident}/clearance', 'ClearanceController');
 
+// User Profile 
+Route::get('/dashboard/profile', 'UserProfileController@index');
+Route::PATCH('/dashboard/profile/{id}', 'UserProfileController@update');
+Route::POST('/dashboard/profile/{id}/password', 'UserProfileController@UpdatePassword');
 
 });
 // Default Laravel Auth Scaffolding
