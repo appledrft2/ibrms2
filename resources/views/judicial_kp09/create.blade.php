@@ -5,7 +5,7 @@
 @section('header',$header)
 @section('content')
 @if($errors->any())
-    {{ implode('', $errors->all('<div>:message</div>')) }}
+    <div class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</div>
 @endif
 <div class="box">
    <form action="/judicial/{{$judicial->id}}/kp09" method="POST" >
@@ -19,7 +19,7 @@
     		<div class="col-md-6">
     			<div class="form-group">
     				<label>Appearance Date <span class="req">*</span></label>
-    				<input type="date" class="form-control" name="hearing_date">
+    				<input type="date" required class="form-control" name="hearing_date">
     			</div>
     			 <div class="bootstrap-timepicker">
                     <div class="form-group">

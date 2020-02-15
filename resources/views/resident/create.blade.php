@@ -7,6 +7,9 @@
 <link rel="stylesheet" type="text/css" href="{{asset('autocomplete/easy-autocomplete.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('autocomplete/easy-autocomplete.themes.min.css')}}">
 @endsection
+@if($errors->any())
+    <div class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</div>
+@endif
 @section('content')
 <div class="row">
 <form action="/resident" autocomplete="off" method="POST" enctype="multipart/form-data">

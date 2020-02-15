@@ -4,7 +4,9 @@
 @section('title',$title)
 @section('header',$header)
 @section('content')
-
+@if($errors->any())
+    <div class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</div>
+@endif
             <div class="box">
             	<div class="box-header">
             		<h5>Household Details: <i class="fa fa-question-circle mr-1" title="Household ID No. is automatically generated"></i></h5>
@@ -23,7 +25,7 @@
                 		<div class="col-md-6">
                 			<div class="form-group">
                 				<label>Family Serial No. <span class="text-danger">*</span></label>
-                				<input type="text"  name="family_serial" placeholder="Enter Family Serial No." class="form-control">
+                				<input type="text" required name="family_serial" placeholder="Enter Family Serial No." class="form-control">
                 			</div>
                 		</div>
                 	</div>

@@ -5,7 +5,7 @@
 @section('header',$header)
 @section('content')
 @if($errors->any())
-    {{ implode('', $errors->all('<div>:message</div>')) }}
+    <div class="alert alert-danger">{{ implode('', $errors->all(':message')) }}</div>
 @endif
 <div class="box">
    <form action="/judicial/{{$judicial->id}}/kp08/{{$kp08->id}}" method="POST" >
