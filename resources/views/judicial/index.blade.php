@@ -10,7 +10,7 @@
                         <a href="/judicial/create" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add New Case</a>
                     </div>
                 	<div class="table-responsive">
-                		<table id="dtt1" class="table table-hover table-bordered">
+                		<table id="tablebtn" class="table table-hover table-bordered">
                 			<thead >
                 				<tr>
                 					
