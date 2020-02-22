@@ -32,4 +32,8 @@ class DashboardController extends MainController
 
     	return $data;
     }
+
+    public function lupon(){
+        return redirect('printables/forms/lupon.php');
+    }
 }

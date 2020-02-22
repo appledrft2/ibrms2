@@ -30,6 +30,10 @@ Route::resource('/resident', 'ResidentController');
 
 // Barangay Profile
 Route::resource('/barangay', 'BarangayController');
+// Lupon
+Route::resource('/lupon', 'LuponController');
+//Lupon Print
+Route::get('/print/lupon', 'LuponController@print');
 
 // Purok 
 Route::resource('/purok', 'PurokController');

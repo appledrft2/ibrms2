@@ -159,6 +159,7 @@
           <ul class="treeview-menu " >
             <li><a class="@if($header=='Barangay Profile') text-black @endif" href="/barangay" style="margin-left:20px"><i class="fa fa-angle-double-right"></i> Barangay</a></li>
             <li><a class="@if($header=='Manage Purok' || $header=='Update Purok' || $header=='New Purok') text-black @endif"  href="/purok" style="margin-left:20px"><i class="fa fa-angle-double-right"></i> Purok</a></li>
+            <li><a class="@if($header=='Lupon') text-black @endif" href="/lupon" style="margin-left:20px"><i class="fa fa-angle-double-right"></i> Lupon</a></li>
           </ul>
         </li>
       </ul>
