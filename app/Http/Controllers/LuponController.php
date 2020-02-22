@@ -87,7 +87,6 @@ class LuponController extends MainController
         $lupon = Lupon::findOrFail(request()->lup_id);
     	$lupon->update($data);
 
-        dd(request()->all);
     	toast('Record Successfully Updated!','success');
     	return redirect('/lupon');
     }
