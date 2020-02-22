@@ -6,6 +6,9 @@
 @section('content')
 <div class="box">
   <div class="box-header">
+    <div style="float:right !important">
+      <button class="btn btn-default" Onclick="printDiv('forPrint')"><i class="fa fa-print"></i> Print Lupon</button>
+    </div>
     @if($lupons == null)
     <form method="POST" action="/lupon" enctype="multipart/form-data">
       @csrf
@@ -335,4 +338,110 @@
     </form>
     @endif
   </div>
+
+  <div id="forPrint" style="display: none">
+
+    <div class="heading" style="text-align: center;font-size: 23px">
+      <p style="text-align: left !important;font-weight: 700">KP Form No. 1</p>
+
+      Republic of the Philippines<br>
+
+      Province of Negros Occidental<br>
+
+      City of Cadiz<br>
+
+      Barangay Zone 2<br>
+
+      OFFICE OF THE PUNONG BARANGAY</p>
+
+      
+
+      <p style="text-align: center;font-size: 23px">{{date('F d,Y')}}</p>
+
+      <p style="margin-top: 1rem;font-size: 23px"><strong>NOTICE TO CONSTITUTE THE LUPON</strong></p>
+
+      <p style="font-size: 23px">To All Barangay Members and All Other Persons Concerned:</p>
+    </div>
+
+    <p style="text-align: justify;font-size: 23px">In compliance with Section (a), Chapter 7, Title One, Book 111, Local Government Code of 1991 (Republic Act No. 7160), of the Katarungang Pambarangay Law, notice is hereby given to constitute the Lupong Tagapamayapa of this barangay. The persons I am considering for appointment are the following:</p>
+
+    <div style="display:flex;font-size: 23px">
+      <div style="flex:1">
+        1. {{$lupons->lupon1}}</br>
+
+        2. {{$lupons->lupon2}}</br>
+
+        3. {{$lupons->lupon3}}</br>
+
+        4. {{$lupons->lupon4}}</br>
+
+        5. {{$lupons->lupon5}}</br>
+
+        6. {{$lupons->lupon6}}</br>
+
+        7. {{$lupons->lupon7}}</br>
+
+        8. {{$lupons->lupon8}}</br>
+        9. {{$lupons->lupon9}}</br>
+
+        10.{{$lupons->lupon10}}</br>
+      </div>
+      <div style="flex:1">
+        11. {{$lupons->lupon11}}</br>
+
+        12. {{$lupons->lupon12}}</br>
+
+        13. {{$lupons->lupon13}}</br>
+
+        14. {{$lupons->lupon14}}</br>
+
+        15. {{$lupons->lupon15}}</br>
+
+        16. {{$lupons->lupon16}}</br>
+
+        17. {{$lupons->lupon17}}</br>
+
+        18. {{$lupons->lupon18}}</br>
+        19. {{$lupons->lupon19}}</br>
+
+        20.{{$lupons->lupon20}}</br>
+      </div>
+      <div style="flex:1">
+        21. {{$lupons->lupon21}}</br>
+
+        22. {{$lupons->lupon22}}</br>
+
+        23. {{$lupons->lupon23}}</br>
+
+        24. {{$lupons->lupon24}}</br>
+
+        25. {{$lupons->lupon25}}</br>
+
+      </div>
+    </div>
+
+    <p style="text-align: justify;font-size: 23px">They have been chosen on the basis of their suitability for the task of conciliation considering their integrity, impartiality, independence of mind, sense of fairness and reputation for probity in view of their age, social standing in the community, tact, patience, resourcefulness, flexibility, open mindedness and other relevant factors. The law provides that only those actually residing or working in the barangay who are not expressly disqualified by law are qualified to be appointed as lupon members.</p>
+
+    <p style="font-size: 23px">All persons are hereby enjoined to immediately inform me of their opposition to or endorsement of any or all of the proposed members or recommend to me other persons not included in the list not later than {{date('F d,Y')}} (the last day for posting this notice) </p>
+
+    <div style="position:relative;left:80rem;margin-top: 10rem;font-size: 23px">
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$brgy->captain}}</p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Punong Barangay
+    </div>
+
+  </div>
+@endsection
+@section('script')
+<script type="text/javascript">
+  function printDiv(divName) {
+       var printContents = document.getElementById(divName).innerHTML;
+       var originalContents = document.body.innerHTML;
+
+       document.body.innerHTML = printContents;
+
+       window.print();
+
+       document.body.innerHTML = originalContents;
+  }
+</script>
 @endsection
