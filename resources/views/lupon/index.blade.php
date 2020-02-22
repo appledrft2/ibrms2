@@ -420,7 +420,7 @@
       </div>
     </div>
 
-    <p style="text-align: justify;font-size: 23px">They have been chosen on the basis of their suitability for the task of conciliation considering their integrity, impartiality, independence of mind, sense of fairness and reputation for probity in view of their age, social standing in the community, tact, patience, resourcefulness, flexibility, open mindedness and other relevant factors. The law provides that only those actually residing or working in the barangay who are not expressly disqualified by law are qualified to be appointed as lupon members.</p>
+    <p style="margin-top:10px;text-align: justify;font-size: 23px">They have been chosen on the basis of their suitability for the task of conciliation considering their integrity, impartiality, independence of mind, sense of fairness and reputation for probity in view of their age, social standing in the community, tact, patience, resourcefulness, flexibility, open mindedness and other relevant factors. The law provides that only those actually residing or working in the barangay who are not expressly disqualified by law are qualified to be appointed as lupon members.</p>
 
     <p style="font-size: 23px">All persons are hereby enjoined to immediately inform me of their opposition to or endorsement of any or all of the proposed members or recommend to me other persons not included in the list not later than {{date('F d,Y')}} (the last day for posting this notice) </p>
 
