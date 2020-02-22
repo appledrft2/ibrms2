@@ -346,11 +346,11 @@
 
       Republic of the Philippines<br>
 
-      Province of Negros Occidental<br>
+      Province of {{$brgy->province}}<br>
 
-      City of Cadiz<br>
+      City of {{$brgy->city}}<br>
 
-      Barangay Zone 2<br>
+      Barangay {{$brgy->name}}<br>
 
       OFFICE OF THE PUNONG BARANGAY</p>
 
