@@ -178,7 +178,7 @@
       @method('PUT')
     <button class="btn btn-success">Update Lupon</button>
     </div>
-    <input type="hidden" name="lup_id" value="{{$lupons->id}}">
+    <input type="text" name="lup_id" value="{{$lupons->id}}">
     <div class="box-body">
       <div class="row">
         <div class="col-md-6">
