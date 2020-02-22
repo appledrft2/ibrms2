@@ -179,7 +179,7 @@
     </section>
 
     <!-- Main content -->
-    <section class="content container-fluid" style="background-color: #f9f9f9;height: 40em;">
+    <section class="content container-fluid" style="background-color: #f9f9f9;">
 
       @yield('content')
 
