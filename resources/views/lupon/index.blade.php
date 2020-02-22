@@ -7,7 +7,7 @@
 <div class="box">
   <div class="box-header">
     <div style="float:right !important">
-      <button class="btn btn-default" Onclick="printDiv('forPrint')"><i class="fa fa-print"></i> Print Lupon</button>
+      <button class="btn btn-default" @if(!$lupons) disabled @endif Onclick="printDiv('forPrint')"><i class="fa fa-print"></i> Print Lupon</button>
     </div>
     @if($lupons == null)
     <form method="POST" action="/lupon" enctype="multipart/form-data">
@@ -366,6 +366,7 @@
     <p style="text-align: justify;font-size: 23px">In compliance with Section (a), Chapter 7, Title One, Book 111, Local Government Code of 1991 (Republic Act No. 7160), of the Katarungang Pambarangay Law, notice is hereby given to constitute the Lupong Tagapamayapa of this barangay. The persons I am considering for appointment are the following:</p>
 
     <div style="display:flex;font-size: 23px">
+      @if($lupons)
       <div style="flex:1">
         1. {{$lupons->lupon1}}</br>
 
@@ -416,7 +417,7 @@
         24. {{$lupons->lupon24}}</br>
 
         25. {{$lupons->lupon25}}</br>
-
+        @endif
       </div>
     </div>
 
