@@ -52,7 +52,7 @@ class LuponController extends MainController
     	return redirect('/lupon');
     }
 
-    public function update(Lupon $lupon){
+    public function update(){
 
 
     	$data = request()->validate([
@@ -84,6 +84,7 @@ class LuponController extends MainController
 
     	]);
 
+        $lupon = Lupon::findOrFail(request()->lup_id);
     	$lupon->update($data);
 
 
