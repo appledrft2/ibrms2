@@ -7,7 +7,7 @@
 <div class="box">
   <div class="box-header">
     <div style="float:right !important">
-      <button class="btn btn-default" @if(!$lupons) disabled @endif Onclick="printDiv('forPrint')"><i class="fa fa-print"></i> Print Lupon</button>
+      <button class="btn btn-default" @if(!$lupons) title="please add lupon first." disabled @endif Onclick="printDiv('forPrint')"><i class="fa fa-print"></i> Print Lupon</button>
     </div>
     @if($lupons == null)
     <form method="POST" action="/lupon" enctype="multipart/form-data">

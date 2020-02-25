@@ -55,6 +55,7 @@
         
         <div class="box-body">
           <h4>Barangay Officals</h4>
+          @if($brgy)
           <div class="form-group">
             <label>Barangay Captain:</label>
             <p>Mr/Mrs. {{$brgy->captain}}</p>
@@ -67,6 +68,11 @@
             <label>Barangay Treasurer:</label>
             <p>Mr/Mrs. {{$brgy->treasurer}}</p>
           </div>
+          @else
+          <div class="form-group">
+                <p class="text-center">There are no officials yet.</p>
+          </div>
+          @endif
         </div>
       </div>
       <div class="box">
